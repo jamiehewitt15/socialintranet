@@ -1,0 +1,188 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/') Sustainable Action
+        a(href='/createProject')
+            button.btn.btn-primary(type='button') Create Project
+  p Welcome to #{title} - Discover international development projects.
+  
+  h2 All Agriculture Projects
+  
+  hr
+  .card.mb-3
+    h3.card-header Project Name 1
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 2
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 3
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 4
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 5
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 6
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+
+  .card.mb-3
+    h3.card-header Project Name 7
+    .card-body
+    .row
+            .col-sm
+                h5.card-title Sub title for the project
+                h6.card-subtitle.text-muted Up voted by 467 users
+                img(style='height: 200px; width: 100%; display: block;', src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E', alt='Card image')
+    
+            .col-sm
+                  .card-body
+                  p.card-text
+                    | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                  ul.list-group.list-group-flush
+                    li.list-group-item Project Created by Organisation
+                    li.list-group-item Team included Bob, Bill and Sally
+                    li.list-group-item Ran 2010 to 2019
+                  .card-body
+                    a.card-link(href='/project') Project Information
+                    
+      .card-footer.text-muted
+                    | 2 days ago
+  div
+    ul.pagination
+      li.page-item.disabled
+        a.page-link(href='#') «
+      li.page-item.active
+        a.page-link(href='#') 1
+      li.page-item
+        a.page-link(href='#') 2
+      li.page-item
+        a.page-link(href='#') 3
+      li.page-item
+        a.page-link(href='#') 4
+      li.page-item
+        a.page-link(href='#') 5
+      li.page-item
+        a.page-link(href='#') »

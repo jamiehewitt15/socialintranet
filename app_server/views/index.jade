@@ -1,0 +1,123 @@
+extends layout
+
+block content
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+    a.navbar-brand(href='#') Solidaridad Intranet
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarColor01', aria-controls='navbarColor01', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarColor01.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='#')
+            | News 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#') Projects
+        li.nav-item
+          a.nav-link(href='#') People
+          li.nav-item
+          a.nav-link(href='#') Documents
+        li.nav-item
+          a.nav-link(href='#') Q&A
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='text', placeholder='Search')
+        button.btn.btn-secondary.my-2.my-sm-0(type='submit') Search
+        button.btn.btn-outline-primary(type='button', style='background:white; margin-left:150px;') Create Update
+  
+  h2(style='margin-top:30px;') Latest Solidaridad Updates
+  p Welcome to the #{title} - Keep up to date with the latest news from the network.
+  hr
+  div(style='padding:50px')    
+      
+      .card.border-success.mb-3
+        h3.card-header New Project Launched
+          span.badge.badge-success(style='width:250px; margin-left:20px;') East & Central Africa
+          span.badge.badge-warning(style='width:100px; margin-left:20px;') Coffee
+        .card-body
+        .row
+                .col-sm(style='padding:20px')  
+                    h5.card-title Coffee Sustainability in Ethipoia
+                    h6.card-subtitle.text-muted Up voted by 467 users
+                    p.card-text
+                        | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                      ul.list-group.list-group-flush
+                        li.list-group-item Project Created by Organisation
+                        li.list-group-item Team included Bob, Bill and Sally
+                        li.list-group-item 2019 to 2021
+                      .card-body
+                        a.card-link(href='/project') Project Information
+        
+                .col-sm
+                      .card-body
+                      img(style='height: 300px; width: 600px; display: block;', src='https://www.solidaridadnetwork.org/sites/solidaridadnetwork.org/files/styles/x-large/public/commodity/_coffee.jpg?itok=SRTf02pq', alt='Card image')
+                      
+                        
+          .card-footer.text-muted
+                        | 2 days ago - Update by:
+                        button.btn.btn-link(type='button') Rachel Wanyoike 
+                          
+      .card.border-info.mb-3
+              h3.card-header Project Completed
+                span.badge.badge-info(style='width:150px; margin-left:20px;') West Africa
+                span.badge.badge-success(style='width:80px; margin-left:20px;') Tea
+              .card-body
+              .row
+                      .col-sm(style='padding:20px')  
+                          h5.card-title Coffee Sustainability in Ethipoia
+                          h6.card-subtitle.text-muted Up voted by 467 users
+                          p.card-text
+                              | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                            ul.list-group.list-group-flush
+                              li.list-group-item Project Created by Organisation
+                              li.list-group-item Team included Bob, Bill and Sally
+                              li.list-group-item 2019 to 2021
+                            .card-body
+                              a.card-link(href='/project') Project Information
+              
+                      .col-sm
+                            .card-body
+                            img(style='height: 300px; width: 600px; display: block;', src='https://www.solidaridadnetwork.org/sites/solidaridadnetwork.org/files/styles/x-large/public/commodity/_coffee.jpg?itok=SRTf02pq', alt='Card image')
+                            
+                              
+                .card-footer.text-muted
+                              | 2 days ago - Update by:
+                              button.btn.btn-link(type='button') Rachel Wanyoike 
+
+        .card.border-danger.mb-3
+        h3.card-header 50 Years coming to an end
+          span.badge.badge-danger(style='width:120px; margin-left:20px;') Network
+          span.badge.badge-secondary(style='width:100px; margin-left:20px;') News
+        .card-body
+        .row
+                .col-sm(style='padding:20px')  
+                    h5.card-title Coffee Sustainability in Ethipoia
+                    h6.card-subtitle.text-muted Up voted by 467 users
+                    p.card-text
+                        | Short project description. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
+                      ul.list-group.list-group-flush
+                        li.list-group-item Project Created by Organisation
+                        li.list-group-item Team included Bob, Bill and Sally
+                        li.list-group-item 2019 to 2021
+                      .card-body
+                        a.card-link(href='/project') Project Information
+        
+                .col-sm
+                      .card-body
+                      img(style='height: 300px; width: 600px; display: block;', src='https://www.solidaridadnetwork.org/sites/solidaridadnetwork.org/files/styles/x-large/public/commodity/_coffee.jpg?itok=SRTf02pq', alt='Card image')
+                                        
+      div
+        ul.pagination
+          li.page-item.disabled
+            a.page-link(href='#') «
+          li.page-item.active
+            a.page-link(href='#') 1
+          li.page-item
+            a.page-link(href='#') 2
+          li.page-item
+            a.page-link(href='#') 3
+          li.page-item
+            a.page-link(href='#') 4
+          li.page-item
+            a.page-link(href='#') 5
+          li.page-item
+            a.page-link(href='#') »

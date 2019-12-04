@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href='/') Sustainable Action
+        a(href='/createProject')
+            button.btn.btn-primary(type='button') Create Project
+      
+
+    p Welcome to #{title} - Discover international development projects.
+    .jumbotron
+        h1.display-3 Fantastic Project to Build Wells
+        p.lead
+            | This was a fantastic project that ran in Kenya betwee 2010 and 2015. We built over 100 wells!
+        .row
+            .col-sm
+                button.btn.btn-success(type='button') Up Vote
+            .col-sm
+                button.btn.btn-primary(type='button') Subscribe to Orgaisation
+                
+            .col-sm
+                button.btn.btn-danger(type='button') Report
+                
+        
+        hr.my-4
+
+        h4 Project Background
+        p
+            | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        h4 Key Outcomes
+        p
+            | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        h4 Recomendations
+        p
+            | Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+        
+        h4 Comments and feedback
+        .list-group
+            a.list-group-item.list-group-item-action.flex-column.align-items-start.active(href='#')
+                .d-flex.w-100.justify-content-between
+                h5.mb-1 Feedback from John
+                small 3 days ago
+                p.mb-1
+                | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                small Donec id elit non mi porta.
+            a.list-group-item.list-group-item-action.flex-column.align-items-start(href='#')
+                .d-flex.w-100.justify-content-between
+                h5.mb-1 Comment from Sally
+                small.text-muted 1 days ago
+                p.mb-1
+                | Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                small.text-muted Donec id elit non mi porta.
+
+
+        p.lead
+            a.btn.btn-primary.btn-lg(href='#', role='button') Comment
+    
