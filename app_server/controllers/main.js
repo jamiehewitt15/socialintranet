@@ -21,3 +21,7 @@ module.exports.newProjects = function(req, res){
 module.exports.agricultureProjects = function(req, res){
     res.render('agricultureprojects', { title: 'Agriculture Projects' });
 }
+
+module.exports.profile = function(req, res){
+    res.render('profile', { title: 'Profile Page' });
+}
