@@ -1,10 +1,10 @@
 {
-  "name": "fix-it",
+  "name": "solidaridad-intranet",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
-  },
+  },  
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
