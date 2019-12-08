@@ -7,9 +7,9 @@ var action = require("../controllers/main")
 router.get('/', action.homepage);
 router.get('/createproject', action.createProject);
 router.get('/project', action.project);
-router.get('/trendingprojects', action.trendingProjects);
-router.get('/newprojects', action.newProjects);
-router.get('/agricultureprojects', action.agricultureProjects);
+router.get('/discover', action.discover);
+router.get('/qa', action.qa);
+router.get('/chat', action.chat);
 router.get('/profile', action.profile);
 
 

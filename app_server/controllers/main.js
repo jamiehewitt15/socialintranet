@@ -10,16 +10,16 @@ module.exports.project = function(req, res){
     res.render('project', { title: 'Project' });
 }
 
-module.exports.trendingProjects = function(req, res){
-    res.render('trendingprojects', { title: 'Trending Projects' });
+module.exports.discover = function(req, res){
+    res.render('discover', { title: 'Discover' });
 }
 
-module.exports.newProjects = function(req, res){
-    res.render('newprojects', { title: 'New Projects' });
+module.exports.qa = function(req, res){
+    res.render('qa', { title: 'Q&A' });
 }
 
-module.exports.agricultureProjects = function(req, res){
-    res.render('agricultureprojects', { title: 'Agriculture Projects' });
+module.exports.chat = function(req, res){
+    res.render('chat', { title: 'chat' });
 }
 
 module.exports.profile = function(req, res){
