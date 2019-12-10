@@ -16,6 +16,8 @@ block content
                   .h7.text-muted Fullname : #{fullName}
                   .h7
                     | #{description}
+                  a.card-link(href='/profile') View Profile
+                    
                 ul.list-group.list-group-flush
                   li.list-group-item
                     .h6.text-muted Followers
@@ -68,59 +70,119 @@ block content
                   li.nav-item
                     a.nav-link(data-toggle='tab', href='#popular') Popular
                   li.nav-item
-                    a.nav-link(href='#all') All
+                    a.nav-link(data-toggle='tab', href='#all') All
                 
                 #myTabContent.tab-content
                   #following.tab-pane.fade.active.show
-                    
-                    
                           // - \\\\\\\Post
                           each post in posts
-                            .card.gedf-card(style='margin-top:20px')
-                              .card-header
-                                .d-flex.justify-content-between.align-items-center
+                            if (post.following == true)
+                              .card.gedf-card(style='margin-top:20px')
+                                .card-header
                                   .d-flex.justify-content-between.align-items-center
-                                    .mr-2
-                                      img.rounded-circle(width='45', src=post.profilePic, alt='Profile pic')
-                                    .ml-2
-                                      .h5.m-0= post.title
-                                      .h7.text-muted= post.user
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src=post.profilePic, alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= post.title
+                                        .h7.text-muted= post.user
+                                    div
+                                      | #{post.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{post.time}
+                                  a.card-link(href='#')
+                                    h5.card-title= post.subTitle
+                                  p.card-text
+                                    | #{post.text}
                                   div
-                                    .dropdown
-                                      button#gedf-drop1.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                                        i.fa.fa-ellipsis-h
-                                      .dropdown-menu.dropdown-menu-right(aria-labelledby='gedf-drop1')
-                                        .h6.dropdown-header Configuration
-                                        a.dropdown-item(href='#') Save
-                                        a.dropdown-item(href='#') Hide
-                                        a.dropdown-item(href='#') Report
-                              .card-body
-                                .text-muted.h7.mb-2
-                                  i.fa.fa-clock-o
-                                  | #{post.time}
-                                a.card-link(href='#')
-                                  h5.card-title= post.subTitle
-                                p.card-text
-                                  | #{post.text}
-                                div
-                                      each tag in post.tags
-                                        span.badge.badge-primary(style='margin-right:5px;')= tag
-                              .card-footer
-                                a.card-link(href='#')
-                                  i.fa.fa-gittip
-                                  |  Like
-                                a.card-link(href='#')
-                                  i.fa.fa-comment
-                                  |  Comment
-                          
+                                        each tag in post.tags
+                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                .card-footer
+                                  a.card-link(href='#')
+                                    i.fa.fa-gittip
+                                    |  Like
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Comment
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Report
                       
                   #popular.tab-pane.fade
-                    p
-                      | Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.
+                    each post in posts
+                            if (post.likes > 20)
+                              .card.gedf-card(style='margin-top:20px')
+                                .card-header
+                                  .d-flex.justify-content-between.align-items-center
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src=post.profilePic, alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= post.title
+                                        .h7.text-muted= post.user
+                                    div
+                                      | #{post.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{post.time}
+                                  a.card-link(href='#')
+                                    h5.card-title= post.subTitle
+                                  p.card-text
+                                    | #{post.text}
+                                  div
+                                        each tag in post.tags
+                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                .card-footer
+                                  a.card-link(href='#')
+                                    i.fa.fa-gittip
+                                    |  Like
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Comment
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Report
+                  
                   #all.tab-pane.fade
-                    p
-                      | Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.
-                        
+                    each post in posts
+                              .card.gedf-card(style='margin-top:20px')
+                                .card-header
+                                  .d-flex.justify-content-between.align-items-center
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src=post.profilePic, alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= post.title
+                                        .h7.text-muted= post.user
+                                    div
+                                      | #{post.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{post.time}
+                                  a.card-link(href='#')
+                                    h5.card-title= post.subTitle
+                                  p.card-text
+                                    | #{post.text}
+                                  div
+                                        each tag in post.tags
+                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                .card-footer
+                                  a.card-link(href='#')
+                                    i.fa.fa-gittip
+                                    |  Like
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Comment
+                                  a.card-link(href='#')
+                                    i.fa.fa-comment
+                                    |  Report
                             
                   div
                     ul.pagination

@@ -15,7 +15,9 @@ module.exports.homepage = function(req, res){
                                     text: "Hello World!! This is the text of my first post. Thank you for reading it!",
                                     time: "Monday 10am",
                                     user: "Rachel Wanyoike",
+                                    following: true,
                                     profilePic: "/images/user-profile.png",
+                                    likes: 42,
                                     tags: ["East Africa", "Kenya", "Coffee", "Sustainablility"]
                                 },
                                 {
@@ -24,7 +26,78 @@ module.exports.homepage = function(req, res){
                                     text: "Hello World!! This is the text of my second post. Thank you for reading it!",
                                     time: "Wednesday 5pm",
                                     user: "Jamie Hewitt",
+                                    following: false,
                                     profilePic: "/images/user-profile.png",
+                                    likes: 14,
+                                    tags: ["Asia", "Tea", "Resiliance"]
+                                
+                                },
+                                {
+                                    title: "Another first post",
+                                    subTitle: "we've just won a new project!",
+                                    text: "Hello Team!! This is the text of my first post. Thank you for reading it!",
+                                    time: "Tuesday 11:30am",
+                                    user: "Fiona Bruce",
+                                    following: false,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 22,
+                                    tags: ["East Africa", "Kenya", "Coffee", "Sustainablility"]
+                                },
+                                {
+                                    title: "Excited to announce my second post",
+                                    subTitle: "we've just won another new project!",
+                                    text: "Hello Friends!! This is the text of my second post. Thank you for reading it!",
+                                    time: "Wednesday 5pm",
+                                    user: "John Smith",
+                                    following: true,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 9,
+                                    tags: ["Asia", "Tea", "Resiliance"]
+                                
+                                },
+                                {
+                                    title: "Coffee Project Success",
+                                    subTitle: "we've just won a new project!",
+                                    text: "Hello World!! This is the text of my first post. Thank you for reading it!",
+                                    time: "Monday 10am",
+                                    user: "Rachel Wanyoike",
+                                    following: true,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 32,
+                                    tags: ["East Africa", "Kenya", "Coffee", "Sustainablility"]
+                                },
+                                {
+                                    title: "Excited to announce new funding!",
+                                    subTitle: "we've just won another new project!",
+                                    text: "Hello World!! This is the text of my second post. Thank you for reading it!",
+                                    time: "Wednesday 5pm",
+                                    user: "Jamie Hewitt",
+                                    following: false,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 3,
+                                    tags: ["Asia", "Tea", "Resiliance"]
+                                
+                                },
+                                {
+                                    title: "New staff hired",
+                                    subTitle: "we've just won a new project!",
+                                    text: "Hello Team!! This is the text of my first post. Thank you for reading it!",
+                                    time: "Tuesday 11:30am",
+                                    user: "Fiona Bruce",
+                                    following: false,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 22,
+                                    tags: ["East Africa", "Kenya", "Coffee", "Sustainablility"]
+                                },
+                                {
+                                    title: "Office has been painted",
+                                    subTitle: "we've just won another new project!",
+                                    text: "Hello Friends!! This is the text of my second post. Thank you for reading it!",
+                                    time: "Friday 4pm",
+                                    user: "John Smith",
+                                    following: true,
+                                    profilePic: "/images/user-profile.png",
+                                    likes: 4,
                                     tags: ["Asia", "Tea", "Resiliance"]
                                 
                                 }
@@ -48,8 +121,36 @@ module.exports.discover = function(req, res){
 }
 
 module.exports.qa = function(req, res){
-    res.render('qa', { title: 'Q&A' });
-}
+    res.render('qa', {  title: 'Q&A',
+                        pageHeader: {
+                            title: "Questions & Answers",
+                            strapline: "Help you're colleagues by answering their questions and upvoting the answers"
+                        }, 
+                        questions:  
+                        [{
+                            title: "What came first, the chicken or the egg?",
+                            text: "I have always been curious about what came first... was it the the chicken or was it the egg?",
+                            time: "Monday 10am",
+                            user: "Rachel Wanyoike",
+                            profilePic: "/images/user-profile.png",
+                            upVotes: 2,
+                            answered: false,
+                            tags: ["East Africa", "Kenya", "Poultry", "Sustainablility"]
+                        },
+                        {
+                            title: "Why did the chicken cross the road?",
+                            text: "I have always been curious about why the chicken crossed the road...",
+                            time: "Monday 10am",
+                            user: "Rachel Wanyoike",
+                            profilePic: "/images/user-profile.png",
+                            upVotes: 2,
+                            answered: true,
+                            tags: ["East Africa", "Kenya", "Poultry", "Sustainablility"]
+                        }]
+                            
+                        
+                    });
+                    }
 
 module.exports.chat = function(req, res){
     res.render('chat', {    title: 'chat',
