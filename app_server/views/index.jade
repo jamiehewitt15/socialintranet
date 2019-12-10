@@ -38,34 +38,32 @@ block content
                         | Post an update
                     li.nav-item
                       a#images-tab.nav-link(data-toggle='tab', role='tab', aria-controls='images', aria-selected='false', href='#images') Images
+                    li.nav-item
+                      a#files-tab.nav-link(data-toggle='tab', role='tab', aria-controls='images', aria-selected='false', href='#files') Files
                 .card-body
                   #myTabContent.tab-content
                     #posts.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='posts-tab')
                       .form-group
+                        label.sr-only(for='message') Title
+                        textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline')
                         label.sr-only(for='message') post
-                        textarea#message.form-control(rows='3', placeholder='What are you thinking?')
+                        textarea#message.form-control(rows='3', placeholder='Share news and updates about projects')
                     #images.tab-pane.fade(role='tabpanel', aria-labelledby='images-tab')
                       .form-group
                         .custom-file
                           input#customFile.custom-file-input(type='file')
                           label.custom-file-label(for='customFile') Upload image
                       .py-4
+                    #files.tab-pane.fade(role='tabpanel', aria-labelledby='files-tab')
+                      .form-group
+                        .custom-file
+                          input#customFile.custom-file-input(type='file')
+                          label.custom-file-label(for='customFile') Upload file
+                      .py-4
                   .btn-toolbar.justify-content-between
                     .btn-group
                       button.btn.btn-primary(type='submit') share
-                    .btn-group
-                      button#btnGroupDrop1.btn.btn-link.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-                        i.fa.fa-globe
-                      .dropdown-menu.dropdown-menu-right(aria-labelledby='btnGroupDrop1')
-                        a.dropdown-item(href='#')
-                          i.fa.fa-globe
-                          |  Public
-                        a.dropdown-item(href='#')
-                          i.fa.fa-users
-                          |  Friends
-                        a.dropdown-item(href='#')
-                          i.fa.fa-user
-                          |  Just me
+                    
               // Post /////          
               div
                 ul.nav.nav-tabs
