@@ -4,120 +4,51 @@ block content
   .row  
     .col-sm-3(style='background:#cccccc; padding:20px; height: 100vh; overflow: scroll;')
       h4 Groups
-      p Coffee Team
-      p Kenya Team
-      p Management
-      p IT Issues
+      each group in groups
+        p= group
       hr
-      h5 Contacts
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | John Johnson
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Sally Saunders
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Matt Mathews
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Rachel Richards
+      h5 Recent Contacts
+      each recentContact in recentContacts 
+        img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
+        | #{recentContact}
+        br
+      
       hr
       h5 All
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Nathaneal Down
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Natalya Deck
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Gustav Purpleson
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Alan Fresco
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Sarah Purpleson
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Juliet Fresco
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Valentino Morose
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Ruby Von Rails
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Hilary Ouse
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Richard Tea
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Nigel Hollandaise
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Gideon Guernsey-Marmaduke
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Fig Nelson
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Hugh Saturation
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Gordon Norman
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Abraham Pigeon
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Jason Response
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Piff Jenkins
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Maggie Morose
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Rachel Rails
-      br
-      img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
-      | Hilary Hornet
-    .col-sm-9(style='background:#f2f2f2; padding:20px;')
-      .outgoing_msg
-        .sent_msg
-          p
-            | Test which is a new approach to have all
-            | solutions
-          span.time_date  11:01 AM    |    June 9
-      .incoming_msg
-        .incoming_msg_img
-          img(src='https://ptetutorials.com/images/user-profile.png', alt='sunil')
-        .received_msg
-          .received_withd_msg
-            p Test, which is a new approach to have
-            span.time_date  11:01 AM    |    Yesterday
-      .outgoing_msg
-        .sent_msg
-          p Apollo University, Delhi, India Test
-          span.time_date  11:01 AM    |    Today
-      .incoming_msg
-        .incoming_msg_img
-          img(src='https://ptetutorials.com/images/user-profile.png', alt='sunil')
-        .received_msg
-          .received_withd_msg
+      each name in names 
+        img(src='/images/user-profile.png', alt='Profile Picture', style='width:30px; padding:4px')
+        | #{name}
+        br
+    each message in messages    
+      .col-sm-9(style='background:#f2f2f2; padding:20px;')
+        .outgoing_msg
+          .sent_msg
             p
-              | We work directly with our designers and suppliers,
-              | and sell direct to you, which means quality, exclusive
-              | products, at a price anyone can afford.
+              | Test which is a new approach to have all
+              | solutions
+            span.time_date  11:01 AM    |    June 9
+        .incoming_msg
+          .incoming_msg_img
+            img(src='/images/user-profile.png', style='width:50px; padding:4px', alt='profile pic')
+          .received_msg
+            .received_withd_msg
+              p Test, which is a new approach to have
+              span.time_date  John | 11:01 AM    |    Yesterday
+        .outgoing_msg
+          .sent_msg
+            p Apollo University, Delhi, India Test
             span.time_date  11:01 AM    |    Today
-      .type_msg
-        .input_msg_write
-          input.write_msg(type='text', placeholder='Type a message')
-          button.msg_send_btn(type='button')
-            i.fa.fa-paper-plane-o(aria-hidden='true')
+        .incoming_msg
+          .incoming_msg_img
+            img(src='/images/user-profile.png', style='width:50px; padding:4px', alt='profile pic')
+          .received_msg
+            .received_withd_msg
+              p
+                | We work directly with our designers and suppliers,
+                | and sell direct to you, which means quality, exclusive
+                | products, at a price anyone can afford.
+              span.time_date  11:01 AM    |    Today
+        
 
       form
         .row(style='margin-top:100px')
