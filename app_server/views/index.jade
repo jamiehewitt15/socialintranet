@@ -12,19 +12,23 @@ block content
             .col-md-3
               .card
                 .card-body
-                  .h5= fullName
-                  .h7.text-muted Fullname : #{fullName}
-                  .h7
-                    | #{description}
-                  a.card-link(href='/profile') View Profile
-                    
+                  .h5 Filter
                 ul.list-group.list-group-flush
                   li.list-group-item
-                    .h6.text-muted Followers
-                    .h5= followers
+                    .h6.text-muted Region
+                    each region in regions
+                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= region
+
                   li.list-group-item
-                    .h6.text-muted Following
-                    .h5= following
+                    .h6.text-muted Country
+                    each country in countries
+                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= country
+
+                  li.list-group-item
+                    .h6.text-muted Commodity
+                    each commodity in commodities
+                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= commodity
+
             .col-md-6.gedf-main
               .card.gedf-card
                 .card-header
@@ -99,7 +103,7 @@ block content
                                     | #{post.text}
                                   div
                                         each tag in post.tags
-                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                          span.badge.badge-primary(style="margin-right: 5px;")= tag
                                 .card-footer
                                   a.card-link(href='#')
                                     i.fa.fa-gittip
@@ -200,3 +204,18 @@ block content
                         a.page-link(href='#') 5
                       li.page-item
                         a.page-link(href='#') »
+            .col-md-3
+              .card
+                .card-body
+                  .h5= fullName
+                  .h7.text-muted Fullname : #{fullName}
+                  .h7
+                    | #{description}
+                  a.card-link(href='/profile') View Profile
+                ul.list-group.list-group-flush
+                  li.list-group-item
+                    .h6.text-muted Followers
+                    .h5= followers
+                  li.list-group-item
+                    .h6.text-muted Following
+                    .h5= following

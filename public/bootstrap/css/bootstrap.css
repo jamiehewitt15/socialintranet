@@ -5468,6 +5468,7 @@ a.badge:hover, a.badge:focus {
 .badge-primary {
   color: #fff;
   background-color: #2C3E50;
+  
 }
 
 a.badge-primary:hover, a.badge-primary:focus {

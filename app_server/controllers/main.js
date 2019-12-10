@@ -8,6 +8,9 @@ module.exports.homepage = function(req, res){
                             description: "Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js, etc.",
                             followers: 5234,
                             following: 3960,
+                            regions: ["East Africa", "Central Africa", "Southern Africa", "West Africa", "Asia", "Europe", "South America", "North America"],
+                            countries: ["Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "DRC", "Zimbabwe", "India", "China", "Nigeria", "Brazil", "Bolivia"],
+                            commodities: ["Coffee", "Tea", "Leather", "Gold", "Dairy", "Poultry", "Textiles", "Palm Oil", "Soy"],
                             posts: 
                                 [{
                                     title: "Proud to announce my first post",
@@ -117,7 +120,12 @@ module.exports.project = function(req, res){
 }
 
 module.exports.discover = function(req, res){
-    res.render('discover', { title: 'Discover' });
+    res.render('discover', {    title: 'Discover',
+                                pageHeader: {
+                                    title: "Discover news and updates",
+                                    strapline: "Click on the tags to discover content"
+                                }, 
+ });
 }
 
 module.exports.qa = function(req, res){
