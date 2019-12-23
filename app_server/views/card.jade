@@ -1,0 +1,38 @@
+extends index
+
+block card
+    | Hello
+    .card.gedf-card(style='margin-top:20px')
+                                    .card-header
+                                    .d-flex.justify-content-between.align-items-center
+                                        .d-flex.justify-content-between.align-items-center
+                                        .mr-2
+                                            img.rounded-circle(width='45', src=post.profilePic, alt='Profile pic')
+                                        .ml-2
+                                            .h5.m-0= post.title
+                                            .h7.text-muted= post.user
+                                        div
+                                        | #{post.likes} Likes
+                                            
+                                    .card-body
+                                    .text-muted.h7.mb-2
+                                        i.fa.fa-clock-o
+                                        | #{post.time}
+                                    a.card-link(href='#')
+                                        h5.card-title= post.subTitle
+                                    p.card-text
+                                        | #{post.text}
+                                    div
+                                            each tag in post.tags
+                                            span.badge.badge-primary(style="margin-right: 5px;")= tag
+                                    .card-footer
+                                    a.card-link(href='#')
+                                        i.fa.fa-gittip
+                                        |  Like
+                                    a.card-link(href='#')
+                                        i.fa.fa-comment
+                                        |  Comment
+                                    a.card-link(href='#')
+                                        i.fa.fa-comment
+                                        |  Report
+                        
