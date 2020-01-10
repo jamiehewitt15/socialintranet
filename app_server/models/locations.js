@@ -10,8 +10,8 @@ var postsSchema = new mongoose.Schema({
     subTitle:  {String, required: true},
     text:  {String, required: true},
     time: String,
-    user: String,
-    following: true,
+    user: {String, required: true},
+    following: Boolean,
     profilePic: Buffer,
     likes: {type: Number, "default": 0, min: 0},
     tags: [String]
@@ -36,6 +36,17 @@ var siteSchema = new mongoose.Schema({
     pages: [pageSchema],    
     posts:[postsSchema]
 });
+
+var questionsSchema = new mongoose.Schema({
+    title: {String, required: true},
+    text: {String, required: true},
+    time: {String, required: true},
+    user: [userSchema],
+    profilePic: {type: Buffer, "default": "/images/user-profile.png"},
+    upVotes: {type: Number, "default": 0, min: 0},
+    answered: {Boolean, "default": false},
+    tags: [String]
+})
 
 mongoose.model('Intranet', siteSchema);
 
