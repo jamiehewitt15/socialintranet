@@ -48,5 +48,12 @@ var questionsSchema = new mongoose.Schema({
     tags: [String]
 })
 
+var chatSchema = new mongoose.Schema({
+    groups: [String],
+    recentContacts: [String],
+    names: [String],
+//  mesages: [messagesSchema]
+})
+
 mongoose.model('Intranet', siteSchema);
 
