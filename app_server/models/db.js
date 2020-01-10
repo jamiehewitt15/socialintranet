@@ -1,5 +1,4 @@
 var mongoose = require( "mongoose");
-
 var dbURI = 'mongodb://localhost/intranet';
 mongoose.connect(dbURI);
 
@@ -22,7 +21,7 @@ var gracefulShutdown = function (msg, callback) {
     })
 };
 
-process.on('SIGUSR2', function() {
+process.once('SIGUSR2', function() {
     gracefulShutdown('nodemon restart', function(){
         process.kill(process.pid, 'SIGUSR2');
     });    
@@ -40,6 +39,6 @@ process.on('SIGTERM', function() {
     });    
 });
 
-require('./locations');
+// require('./locations');
 
 

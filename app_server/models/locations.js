@@ -1,27 +1,20 @@
 var mongoose = require( "mongoose");
 
-var siteSchema = new mongoose.Schema({
-    title: {String, required: true},
-    regions: [String],
-    countries: [String],
-    commodities: [String]
-});
-
 var pageSchema = new mongoose.Schema({
-    title: {String, required: true},
-    strapline: {String, required: true}
-});
+     title: {String, required: true},
+     strapline: {String, required: true}
+ });
 
 var postsSchema = new mongoose.Schema({
     title:  {String, required: true},
     subTitle:  {String, required: true},
     text:  {String, required: true},
-    time: "Monday 10am",
-    user: "Rachel Wanyoike",
+    time: String,
+    user: String,
     following: true,
-    profilePic: "/images/user-profile.png",
-    likes: 42,
-    tags: ["East Africa", "Kenya", "Coffee", "Sustainablility"]
+    profilePic: Buffer,
+    likes: {type: Number, "default": 0, min: 0},
+    tags: [String]
                                 
 });
 
@@ -31,6 +24,18 @@ var userSchema = new mongoose.Schema({
     followers: {type: Number, "default": 0, min: 0},
     following: {type: Number, "default": 0, min: 0},
     profilePic: {type: Buffer, "default": "/images/user-profile.png"},
-    posts: {postsSchema}
+    posts:[postsSchema]
 });
+
+var siteSchema = new mongoose.Schema({
+    title: {String, required: true},
+    regions: [String],
+    countries: [String],
+    commodities: [String],
+    users: [userSchema],
+    pages: [pageSchema],    
+    posts:[postsSchema]
+});
+
+mongoose.model('Intranet', siteSchema);
 
