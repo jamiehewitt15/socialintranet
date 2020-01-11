@@ -1,16 +1,16 @@
 var mongoose = require( "mongoose");
 
 var pageSchema = new mongoose.Schema({
-     title: {String, required: true},
-     strapline: {String, required: true}
+     title: {type: String, required: true},
+     strapline: {type: String, required: true}
  });
 
 var postsSchema = new mongoose.Schema({
-    title:  {String, required: true},
-    subTitle:  {String, required: true},
-    text:  {String, required: true},
+    title:  {type: String, required: true},
+    subTitle:  {type: String, required: true},
+    text:  {type: String, required: true},
     time: String,
-    user: {String, required: true},
+    user: {type: String, required: true},
     following: Boolean,
     profilePic: Buffer,
     likes: {type: Number, "default": 0, min: 0},
@@ -19,7 +19,7 @@ var postsSchema = new mongoose.Schema({
 });
 
 var userSchema = new mongoose.Schema({
-    fullName: {String, required: true},
+    fullName: {type: String, required: true},
     description: {type: String, "default": "New user"},
     followers: {type: Number, "default": 0, min: 0},
     following: {type: Number, "default": 0, min: 0},
@@ -27,24 +27,14 @@ var userSchema = new mongoose.Schema({
     posts:[postsSchema]
 });
 
-var siteSchema = new mongoose.Schema({
-    title: {String, required: true},
-    regions: [String],
-    countries: [String],
-    commodities: [String],
-    users: [userSchema],
-    pages: [pageSchema],    
-    posts:[postsSchema]
-});
-
 var questionsSchema = new mongoose.Schema({
-    title: {String, required: true},
-    text: {String, required: true},
-    time: {String, required: true},
+    title: {type: String, required: true},
+    text: {type: String, required: true},
+    time: {type: String, required: true},
     user: [userSchema],
     profilePic: {type: Buffer, "default": "/images/user-profile.png"},
     upVotes: {type: Number, "default": 0, min: 0},
-    answered: {Boolean, "default": false},
+    answered: {type: Boolean, "default": false},
     tags: [String]
 })
 
@@ -54,6 +44,16 @@ var chatSchema = new mongoose.Schema({
     names: [String],
 //  mesages: [messagesSchema]
 })
+
+var siteSchema = new mongoose.Schema({
+    title: {type: String, required: true},
+    regions: [String],
+    countries: [String],
+    commodities: [String],
+    users: [userSchema],
+    pages: [pageSchema],    
+    posts:[postsSchema]
+});
 
 mongoose.model('Intranet', siteSchema);
 
