@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var crtlQuestions = require('../controllers/questions')
+var crtlQuestions = require('../controllers/questions');
+// var crtlNews = require('../controllers/news');
 
 // Home Page
-
+// router.get('/', crtlNews.newsListByLikes);
+// router.post('/', crtlNews.newsCreate);
+// router.get('/:questionid', crtlNews.newsReadOne);
+// router.put('/:questionid', crtlNews.newsUpdateOne);
+// router.post('/:questionid', crtlNews.newsUpvote);
+// router.delete('/:questionid', crtlNews.newsDeleteOne);
 
 // Create Project
 

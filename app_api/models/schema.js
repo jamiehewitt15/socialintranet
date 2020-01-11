@@ -5,7 +5,7 @@ var pageSchema = new mongoose.Schema({
      strapline: {type: String, required: true}
  });
 
-var postsSchema = new mongoose.Schema({
+var newsSchema = new mongoose.Schema({
     title:  {type: String, required: true},
     subTitle:  {type: String, required: true},
     text:  {type: String, required: true},
@@ -13,7 +13,7 @@ var postsSchema = new mongoose.Schema({
     user: {type: String, required: true},
     following: Boolean,
     profilePic: Buffer,
-    likes: {type: Number, "default": 0, min: 0},
+    upVote: {type: Number, "default": 0, min: 0},
     tags: [String]
                                 
 });

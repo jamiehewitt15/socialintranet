@@ -1,24 +1,24 @@
 var mongoose = require('mongoose');
-var Question = mongoose.model('Intranet');
+var News = mongoose.model('Intranet');
 
 var sendJsonResponse = function (res, status, content){
     res.status(status);
     res.json(content);
 }
 
-module.exports.questionsListByUpvotes = function (req, res) {
-    Question.find().exec(function(err, questions){
-        if(!questions){
-            sendJsonResponse(res, 404, {'message' : 'Questions not found'});
+module.exports.newsListByLikes = function (req, res) {
+    News.find().exec(function(err, news){
+        if(!news){
+            sendJsonResponse(res, 404, {'message' : 'News not found'});
         } else if (err){
             sendJsonResponse(res, 404, err);
         } else {
-            sendJsonResponse(res, 200, questions);
+            sendJsonResponse(res, 200, news);
         }
     });
 };
-module.exports.questionsCreate = function (req, res) {
-    Question.create({
+module.exports.newsCreate = function (req, res) {
+    News.create({
         name: req.body.name,
         status: req.body.status,
         summary: req.body.summary,
@@ -34,9 +34,9 @@ module.exports.questionsCreate = function (req, res) {
         }
     });
 };
-module.exports.questionsReadOne = function (req, res) {
+module.exports.newsReadOne = function (req, res) {
     if(req.params && req.params.questionid) {
-        Question.findById(req.params.questionid).exec(function(err, question){
+        News.findById(req.params.questionid).exec(function(err, question){
             if(!question){
                 sendJsonResponse(res, 404, {'message' : 'Question not found'});
             } else if (err){
@@ -49,9 +49,9 @@ module.exports.questionsReadOne = function (req, res) {
         sendJsonResponse(res, 404, {'message': 'No questionid in request'});
     }
 };
-module.exports.questionsUpdateOne = function (req, res) {
+module.exports.newsUpdateOne = function (req, res) {
     if(req.params && req.params.questionid) {
-        Question.findById(req.params.questionid).exec(
+        News.findById(req.params.questionid).exec(
             function(err, question){
                 
                 if(!question){
@@ -83,9 +83,9 @@ module.exports.questionsUpdateOne = function (req, res) {
 };
 
 
-module.exports.questionsUpvote = function (req, res) {
+module.exports.newsUpvote = function (req, res) {
     if(req.params && req.params.questionid) {
-        Question.findById(req.params.questionid).exec(
+        News.findById(req.params.questionid).exec(
             function(err, question){
                 
                 if(!question){
@@ -111,6 +111,6 @@ module.exports.questionsUpvote = function (req, res) {
     }
 };
 
-module.exports.questionsDeleteOne = function (req, res) {
+module.exports.newsDeleteOne = function (req, res) {
     sendJsonResponse(res, 200, {"status" : "success"});
 };
