@@ -24,7 +24,7 @@ var userSchema = new mongoose.Schema({
     followers: {type: Number, "default": 0, min: 0},
     following: {type: Number, "default": 0, min: 0},
     profilePic: {type: Buffer, "default": "/images/user-profile.png"},
-    posts:[postsSchema]
+    news:[newsSchema]
 });
 
 var questionsSchema = new mongoose.Schema({
@@ -52,7 +52,7 @@ var siteSchema = new mongoose.Schema({
     commodities: [String],
     users: [userSchema],
     pages: [pageSchema],    
-    posts:[postsSchema]
+    news:[newsSchema]
 });
 
 mongoose.model('Intranet', siteSchema);

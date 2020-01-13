@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .row
+    .col-lg-12
+      h2= title
+      form(method='POST', action='')
+        fieldset
+          legend New User
+          .form-group
+            label(for='inputName') Name
+            input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
+            small#nameHelp.form-text.text-muted Please enter your full name.
+          .form-group
+            label(for='inputDescription') Description
+            textarea#textareaComment.form-control(rows='3', name='description')
+          input.btn.btn-success(type='submit', value='Submit')
