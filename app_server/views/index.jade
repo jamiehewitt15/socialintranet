@@ -97,7 +97,7 @@ block content
                 #myTabContent.tab-content
                   #following.tab-pane.fade.active.show
                           // - \\\\\\\Following Posts
-                          each post in posts
+                          each post in news
                             if (post.following == true)
                               .card.gedf-card(style='margin-top:20px')
                                     .card-header
@@ -134,7 +134,7 @@ block content
                                           |  Report
                               
                   #popular.tab-pane.fade
-                    each post in posts
+                    each post in news
                             if (post.likes > 20)
                               .card.gedf-card(style='margin-top:20px')
                                 .card-header
@@ -171,7 +171,7 @@ block content
                                     |  Report
                   
                   #all.tab-pane.fade
-                    each post in posts
+                    each post in news
                               .card.gedf-card(style='margin-top:20px')
                                 .card-header
                                   .d-flex.justify-content-between.align-items-center

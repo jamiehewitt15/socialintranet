@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var crtlQuestions = require('../controllers/questions');
+// var crtlQuestions = require('../controllers/questions');
 // var crtlNews = require('../controllers/news');
+var crtlUsers = require('../controllers/users');
+
+// Users
+router.post('/users', crtlUsers.usersCreate);
+
 
 // Home Page
 // router.get('/', crtlNews.newsListByLikes);
@@ -21,12 +26,12 @@ var crtlQuestions = require('../controllers/questions');
 
 
 // Questions
-router.get('/qa', crtlQuestions.questionsListByUpvotes);
-router.post('/qa', crtlQuestions.questionsCreate);
-router.get('/qa/:questionid', crtlQuestions.questionsReadOne);
-router.put('/qa/:questionid', crtlQuestions.questionsUpdateOne);
-router.post('/qa/:questionid', crtlQuestions.questionsUpvote);
-router.delete('/qa/:questionid', crtlQuestions.questionsDeleteOne);
+// router.get('/qa', crtlQuestions.questionsListByUpvotes);
+// router.post('/qa', crtlQuestions.questionsCreate);
+// router.get('/qa/:questionid', crtlQuestions.questionsReadOne);
+// router.put('/qa/:questionid', crtlQuestions.questionsUpdateOne);
+// router.post('/qa/:questionid', crtlQuestions.questionsUpvote);
+// router.delete('/qa/:questionid', crtlQuestions.questionsDeleteOne);
 
 // Answers
 

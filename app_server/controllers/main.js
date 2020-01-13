@@ -1,3 +1,6 @@
+var request = require('request');
+var apiOptions = { server : "http://localhost:3000" };
+
 module.exports.homepage = function(req, res){
     res.render('index', {   title: 'Solidaridad Intranet',
                             pageHeader: {
@@ -11,7 +14,7 @@ module.exports.homepage = function(req, res){
                             regions: ["East Africa", "Central Africa", "Southern Africa", "West Africa", "Asia", "Europe", "South America", "North America"],
                             countries: ["Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "DRC", "Zimbabwe", "India", "China", "Nigeria", "Brazil", "Bolivia"],
                             commodities: ["Coffee", "Tea", "Leather", "Gold", "Dairy", "Poultry", "Textiles", "Palm Oil", "Soy"],
-                            posts: 
+                            news: 
                                 [{
                                     title: "Proud to announce my first post",
                                     subTitle: "we've just won a new project!",
@@ -110,6 +113,33 @@ module.exports.homepage = function(req, res){
                             
 });
 }
+
+module.exports.newUser = function(req, res) {
+    res.render('newUser', { title: 'Create a New User' });
+};
+
+module.exports.doNewUser = function(req, res){
+    var requestOptions, path, postData;
+    
+    path = '/api/users';
+
+    postData = {
+        name: req.body.name,
+        description: req.body.description
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: 'POST',
+        json: postData
+    };
+    request(requestOptions,
+        function(apierr, apires, apibody){
+            res.redirect('/')
+        }
+    );
+}
+
+
 
 module.exports.createProject = function(req, res){
     res.render('createProject', { title: 'Create Project' });

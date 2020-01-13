@@ -13,5 +13,10 @@ block content
             small#nameHelp.form-text.text-muted Please enter your full name.
           .form-group
             label(for='inputDescription') Description
-            textarea#textareaComment.form-control(rows='3', name='description')
+            textarea#textareadescription.form-control(rows='3', name='description')
+            small#nameHelp.form-text.text-muted Describe yourself and your role.
+            //.form-group
+                label(for='inputDescription') Profile Picture
+                input(type='image' name='Profile Picture')
+                small#nameHelp.form-text.text-muted Upload your profile picture.
           input.btn.btn-success(type='submit', value='Submit')
