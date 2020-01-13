@@ -19,7 +19,7 @@ var newsSchema = new mongoose.Schema({
 });
 
 var userSchema = new mongoose.Schema({
-    fullName: {type: String, required: true},
+    name: {type: String, required: true},
     description: {type: String, "default": "New user"},
     followers: {type: Number, "default": 0, min: 0},
     following: {type: Number, "default": 0, min: 0},

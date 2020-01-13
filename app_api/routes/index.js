@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
-// var crtlQuestions = require('../controllers/questions');
-// var crtlNews = require('../controllers/news');
+//var ctrlComments = require('../controllers/comment');
+var crtlQuestions = require('../controllers/questions');
+var crtlNews = require('../controllers/news');
 var crtlUsers = require('../controllers/users');
+var crtlQuestions = require('../controllers/questions');
 
 // Users
 router.post('/users', crtlUsers.usersCreate);
-
+router.get('/users/:userid', crtlUsers.usersReadOne);
 
 // Home Page
+router.get('/:newsid', crtlNews.newsReadOne);
 // router.get('/', crtlNews.newsListByLikes);
 // router.post('/', crtlNews.newsCreate);
 // router.get('/:questionid', crtlNews.newsReadOne);
@@ -26,6 +29,8 @@ router.post('/users', crtlUsers.usersCreate);
 
 
 // Questions
+router.get('/questions/:questionid', crtlQuestions.questionsReadOne);
+
 // router.get('/qa', crtlQuestions.questionsListByUpvotes);
 // router.post('/qa', crtlQuestions.questionsCreate);
 // router.get('/qa/:questionid', crtlQuestions.questionsReadOne);

@@ -40,5 +40,5 @@ process.on('SIGTERM', function() {
 });
 
 require('./schema');
-
+require('./userSchema');
 
