@@ -11,7 +11,7 @@ router.post('/users', crtlUsers.usersCreate);
 router.get('/users/:userid', crtlUsers.usersReadOne);
 
 // Home Page
-router.get('/:newsid', crtlNews.newsReadOne);
+router.get('/users/:userid/:newsid', crtlNews.newsReadOne);
 // router.get('/', crtlNews.newsListByLikes);
 // router.post('/', crtlNews.newsCreate);
 // router.get('/:questionid', crtlNews.newsReadOne);

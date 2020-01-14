@@ -46,9 +46,11 @@ module.exports.usersReadOne = function (req, res) {
 // };
 
 module.exports.usersCreate = function (req, res) {
+    console.log(req.body.password);
     Users.create({
         name: req.body.name,
-        description: req.body.description
+        description: req.body.description,
+        // password: req.body.password,
     }, function(err, user){
         if(err){
             sendJsonResponse(res, 400, err);

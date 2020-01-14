@@ -9,16 +9,20 @@ block content
           legend New User
           .form-group
             label(for='inputName') Name
-            input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
             small#nameHelp.form-text.text-muted Please enter your full name.
+            input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
           .form-group
             label(for='inputDescription') Description
-            textarea#textareadescription.form-control(rows='3', name='description')
             small#nameHelp.form-text.text-muted Describe yourself and your role.
+            textarea#textareadescription.form-control(rows='3', name='description')
             //.form-group
                 label(for='inputDescription') Profile Picture
                 input(type='image' name='Profile Picture')
                 small#nameHelp.form-text.text-muted Upload your profile picture.
+          //- .form-group
+          //-   label(for='inputPassword') Password
+          //-   small#nameHelp.form-text.text-muted Please create a password.
+          //-   input#inputName.form-control(aria-describedby='passwordHelp', type='text', placeholder='Create a secure password', name='password')
           input.btn.btn-success(type='submit', value='Submit')
   h5 Current users:
   
