@@ -1,7 +1,37 @@
 var request = require('request');
 var apiOptions = { server : "http://localhost:3000" };
 
-module.exports.homepage = function(req, res){
+module.exports.newsList = function(req, res) {
+    var requestOptions;
+    var path;
+    path = '/api/';
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "GET",
+        json:  {}
+    };
+    request(requestOptions,
+            function(apierr, apires, apibody){
+                if(apires.statusCode == 200 && apibody.length){
+                    renderHomepage(req, res, apibody);
+            }
+        }
+    );
+};
+
+var renderHomepage = function(req, res, body){
+    res.render('News-list', 
+        {   title: 'Solidaridad Intranet',
+            pageHeader: {
+                title: "Latest Updates",
+                strapline: "Welcome to the Solidaridad Intranet - Keep up to date with the latest news from the network."
+        },
+        news: body
+        });
+};
+
+
+module.exports.homepage = function(req, res, body){
     res.render('index', {   title: 'Solidaridad Intranet',
                             pageHeader: {
                                 title: "Latest Updates",

@@ -53,7 +53,17 @@ module.exports.newsReadOne = function (req, res) {
     }
 };
 
-
+module.exports.newsList = function (req, res) {
+    News.find().exec(function(err, news){
+        if(!news){
+            sendJsonResponse(res, 404, {'message' : 'News not found'});
+        } else if (err){
+            sendJsonResponse(res, 404, err);
+        } else {
+            sendJsonResponse(res, 200, news);
+        }
+    });
+};
 
 
 
