@@ -4,7 +4,7 @@ var router = express.Router();
 var crtlQuestions = require('../controllers/questions');
 var crtlNews = require('../controllers/news');
 var crtlUsers = require('../controllers/users');
-var crtlQuestions = require('../controllers/questions');
+//var crtlQuestions = require('../controllers/questions');
 
 // Users
 router.post('/users', crtlUsers.usersCreate);

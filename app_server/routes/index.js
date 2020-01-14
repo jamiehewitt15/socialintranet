@@ -4,7 +4,7 @@ var router = express.Router();
 var action = require("../controllers/main")
 
 /* GET pages. */
-router.get('/', action.homepage);
+router.get('/', action.newsList);
 router.get('/createproject', action.createProject);
 router.get('/project', action.project);
 router.get('/discover', action.discover);
