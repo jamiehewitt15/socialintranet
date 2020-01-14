@@ -11,7 +11,7 @@ router.post('/:newsid/newsLikes', newsController.doNewsLikes);
 
 /* questions */
 router.get('/qa', questionsController.questionsList);
-router.post('/:questionsid/questionsUpVotes', questionsController.doQuestionsUpvotes);
+router.post('qa/:questionsid/questionsUpVotes', questionsController.doQuestionsUpvotes);
 
 /* users */
 router.get('/newuser', action.newUser);
