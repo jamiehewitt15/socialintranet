@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var News = mongoose.model('users');
+var News = mongoose.model('Intranet');
 
 var sendJsonResponse = function (res, status, content){
     res.status(status);
@@ -28,24 +28,14 @@ var sendJsonResponse = function (res, status, content){
 
 
 module.exports.newsReadOne = function (req, res) {
-    // News.find({}, function(err, news) {
-    //     if (!err){ 
-    //         console.log(news);
-    //         console.log("No error")
-            
-    //     } else {throw err; 
-    //         console.log("Error")}
-        
-    // });
-
-    if(req.params && req.params.userid && req.params.newsid) {
-        News.findById(req.params.userid).select('name news').exec(function(err, users){
-            if(!users){
+    if(req.params && req.params.newsid) {
+        News.findById(req.params.newsid).exec(function(err, news){
+            if(!news){
                 sendJsonResponse(res, 404, {'message' : 'News not found'});
             } else if (err){
                 sendJsonResponse(res, 404, err);                
             } else {
-                sendJsonResponse(res, 200, users);
+                sendJsonResponse(res, 200, newsid);
             }
         });
     }else{

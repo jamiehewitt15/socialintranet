@@ -122,11 +122,10 @@ module.exports.doNewUser = function(req, res){
     var requestOptions, path, postData;
     
     path = '/api/users';
-    console.log("doNewUser start")
+
     postData = {
         name: req.body.name,
         description: req.body.description
-        
     };
     requestOptions = {
         url: apiOptions.server + path,
@@ -138,7 +137,6 @@ module.exports.doNewUser = function(req, res){
             res.redirect('/')
         }
     );
-    console.log("doNewUser finished")
 }
 
 

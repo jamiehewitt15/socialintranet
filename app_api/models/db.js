@@ -1,5 +1,5 @@
 var mongoose = require( "mongoose");
-var dbURI = 'mongodb://localhost/Intranet';
+var dbURI = 'mongodb://localhost/intranet';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function(){

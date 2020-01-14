@@ -3,7 +3,7 @@ extends layout
 block content
   .row
     .col-lg-12
-      
+      h2= title
       form(method='POST', action='')
         fieldset
           legend New User
@@ -19,10 +19,4 @@ block content
                 label(for='inputDescription') Profile Picture
                 input(type='image' name='Profile Picture')
                 small#nameHelp.form-text.text-muted Upload your profile picture.
-          //- .form-group
-          //-   label(for='inputPassword') Password
-          //-   small#nameHelp.form-text.text-muted Please create a password.
-          //-   input#inputName.form-control(aria-describedby='passwordHelp', type='text', placeholder='Create a secure password', name='password')
           input.btn.btn-success(type='submit', value='Submit')
-  h5 Current users:
-  
