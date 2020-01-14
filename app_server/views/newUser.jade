@@ -3,20 +3,22 @@ extends layout
 block content
   .row
     .col-lg-12
-      h2= title
+      
       form(method='POST', action='')
         fieldset
           legend New User
           .form-group
             label(for='inputName') Name
-            small#nameHelp.form-text.text-muted Please enter your full name.
             input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
+            small#nameHelp.form-text.text-muted Please enter your full name.
           .form-group
             label(for='inputDescription') Description
-            small#nameHelp.form-text.text-muted Describe yourself and your role.
             textarea#textareadescription.form-control(rows='3', name='description')
+            small#nameHelp.form-text.text-muted Describe yourself and your role.
             //.form-group
                 label(for='inputDescription') Profile Picture
                 input(type='image' name='Profile Picture')
                 small#nameHelp.form-text.text-muted Upload your profile picture.
           input.btn.btn-success(type='submit', value='Submit')
+  h5 Current users:
+  
