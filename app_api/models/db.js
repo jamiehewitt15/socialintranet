@@ -41,4 +41,5 @@ process.on('SIGTERM', function() {
 
 require('./schema');
 require('./userSchema');
+require('./question');
 

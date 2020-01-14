@@ -47,38 +47,6 @@ module.exports.discover = function(req, res){
  });
 }
 
-module.exports.qa = function(req, res){
-    res.render('qa', {  title: 'Q&A',
-                        pageHeader: {
-                            title: "Questions & Answers",
-                            strapline: "Help you're colleagues by answering their questions and upvoting the answers"
-                        }, 
-                        questions:  
-                        [{
-                            title: "What came first, the chicken or the egg?",
-                            text: "I have always been curious about what came first... was it the the chicken or was it the egg?",
-                            time: "Monday 10am",
-                            user: "Rachel Wanyoike",
-                            profilePic: "/images/user-profile.png",
-                            upVotes: 2,
-                            answered: false,
-                            tags: ["East Africa", "Kenya", "Poultry", "Sustainablility"]
-                        },
-                        {
-                            title: "Why did the chicken cross the road?",
-                            text: "I have always been curious about why the chicken crossed the road...",
-                            time: "Monday 10am",
-                            user: "Rachel Wanyoike",
-                            profilePic: "/images/user-profile.png",
-                            upVotes: 2,
-                            answered: true,
-                            tags: ["East Africa", "Kenya", "Poultry", "Sustainablility"]
-                        }]
-                            
-                        
-                    });
-                    }
-
 module.exports.chat = function(req, res){
     res.render('chat', {    title: 'chat',
                             groups: ["Coffee Team", "Kenya Team", "Management", "IT Issues"],

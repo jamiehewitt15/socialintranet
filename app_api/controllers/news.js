@@ -6,27 +6,6 @@ var sendJsonResponse = function (res, status, content){
     res.json(content);
 }
 
-// module.exports.newsReadOne = function (req, res) { 
-//     if(req.params && req.params.questionid) {
-//         News
-//             .findById(req.params.newsid)
-//             .exec(function(err, news){
-//                 if(!news){
-//                     sendJsonResponse(res, 404, {'message' : 'News Post not found'});
-//                     //return;
-//                 } else if (err){
-//                     sendJsonResponse(res, 404, err);  
-//                     //return;              
-//                 } else {
-//                     sendJsonResponse(res, 200, newsid);
-//                     }                
-//             });
-//     }else{
-//         sendJsonResponse(res, 404, {'message': 'No newsid in request'});
-//         }
-// };
-
-
 module.exports.newsReadOne = function (req, res) {
     // News.find({}, function(err, news) {
     //     if (!err){ 

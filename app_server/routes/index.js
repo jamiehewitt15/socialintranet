@@ -3,13 +3,15 @@ var router = express.Router();
 
 var action = require("../controllers/main")
 var newsController = require("../controllers/news")
+var questionsController = require("../controllers/questions")
 
 /* news */
 router.get('/', newsController.newsList);
 router.post('/:newsid/newsLikes', newsController.doNewsLikes);
 
 /* questions */
-router.get('/qa', action.qa);
+router.get('/qa', questionsController.questionsList);
+router.post('/:questionsid/questionsUpVotes', questionsController.doQuestionsUpvotes);
 
 /* users */
 router.get('/newuser', action.newUser);
