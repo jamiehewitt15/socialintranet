@@ -65,7 +65,35 @@ module.exports.newsList = function (req, res) {
     });
 };
 
-
+module.exports.doNewsLike = function (req, res) {
+    console.log("doNewsLike starting")
+        if(req.params && req.params.newsid) {
+            News.findById(req.params.newsid).exec(
+                function(err, news){
+                    
+                    if(!news){
+                        sendJsonResponse(res, 404, {'message' : 'News not found'});
+                    } else if (err){
+                        sendJsonResponse(res, 404, err);                
+                    } else {
+                        news.likes = news.likes + 1;
+                        console.log("doNewsLike likes")
+                        console.log(news.likes)
+                        news.save(function(err, news){
+                            if(err){
+                                sendJsonResponse(res, 404, err);
+                            }else{
+                                sendJsonResponse(res, 200, news);
+                            }
+                        });
+                        
+                    }
+            });
+        }else{
+            sendJsonResponse(res, 404, {'message': 'No newsid in request'});
+        }
+        console.log("doNewsLike finishing")
+    };
 
 
 

@@ -123,15 +123,14 @@ block content
                                             each tag in post.tags
                                               span.badge.badge-primary(style="margin-right: 5px;")= tag
                                     .card-footer
-                                      a.card-link(href='#')
-                                          i.fa.fa-gittip
-                                          |  Like
-                                      a.card-link(href='#')
-                                          i.fa.fa-comment
-                                          |  Comment
-                                      a.card-link(href='#')
-                                          i.fa.fa-comment
-                                          |  Report
+                                       form(method='POST', action='/' + post._id + '/newsLikes')
+                                          input.btn.btn-success(type='submit', value='Like')
+                                          a.card-link(href='#')
+                                              i.fa.fa-comment
+                                              |  Comment
+                                          a.card-link(href='#')
+                                              i.fa.fa-comment
+                                              |  Report
                               
                   #popular.tab-pane.fade
                     each post in news
@@ -160,15 +159,14 @@ block content
                                         each tag in post.tags
                                           span.badge.badge-primary(style='margin-right:5px;')= tag
                                 .card-footer
-                                  a.card-link(href='#')
-                                    i.fa.fa-gittip
-                                    |  Like
-                                  a.card-link(href='#')
-                                    i.fa.fa-comment
-                                    |  Comment
-                                  a.card-link(href='#')
-                                    i.fa.fa-comment
-                                    |  Report
+                                  form(method='POST', action='/' + post._id + '/newsLikes')
+                                      input.btn.btn-success(type='submit', value='Like')
+                                      a.card-link(href='#')
+                                         i.fa.fa-comment
+                                         |  Comment
+                                      a.card-link(href='#')
+                                         i.fa.fa-comment
+                                         |  Report
                   
                   #all.tab-pane.fade
                     each post in news
@@ -196,15 +194,14 @@ block content
                                         each tag in post.tags
                                           span.badge.badge-primary(style='margin-right:5px;')= tag
                                 .card-footer
-                                  a.card-link(href='#')
-                                    i.fa.fa-gittip
-                                    |  Like
-                                  a.card-link(href='#')
-                                    i.fa.fa-comment
-                                    |  Comment
-                                  a.card-link(href='#')
-                                    i.fa.fa-comment
-                                    |  Report
+                                  form(method='POST', action='/' + post._id + '/newsLikes')
+                                      input.btn.btn-success(type='submit', value='Like')
+                                      a.card-link(href='#')
+                                         i.fa.fa-comment
+                                         |  Comment
+                                      a.card-link(href='#')
+                                         i.fa.fa-comment
+                                         |  Report
                             
                   div
                     ul.pagination

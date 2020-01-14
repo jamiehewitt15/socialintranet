@@ -3,8 +3,10 @@ var router = express.Router();
 
 var action = require("../controllers/main")
 
-/* GET pages. */
+/* news */
 router.get('/', action.newsList);
+router.post('/:newsid/newsLikes', action.doNewsLikes);
+
 router.get('/createproject', action.createProject);
 router.get('/project', action.project);
 router.get('/discover', action.discover);
@@ -13,5 +15,6 @@ router.get('/chat', action.chat);
 router.get('/profile', action.profile);
 router.get('/newuser', action.newUser);
 router.post('/newuser', action.doNewUser);
+
 
 module.exports = router;

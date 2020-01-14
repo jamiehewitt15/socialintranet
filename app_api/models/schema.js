@@ -13,7 +13,7 @@ var newsSchema = new mongoose.Schema({
     user: {type: String, required: true},
     following: Boolean,
     profilePic: Buffer,
-    upVote: {type: Number, "default": 0, min: 0},
+    likes: {type: Number, "default": 0, min: 0},
     tags: [String]
                                 
 });

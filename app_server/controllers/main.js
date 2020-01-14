@@ -19,6 +19,27 @@ module.exports.newsList = function(req, res) {
     );
 };
 
+module.exports.doNewsLikes = function(req, res) {
+    var requestOptions;
+    var path;
+    path = '/api/' + req.params.newsid;
+
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "POST",
+        json:  {}
+    };
+    request(requestOptions,
+        function(apierr, apires, apibody){
+            {
+                res.redirect('/');
+        }
+    }
+);
+};
+
+
+
 // var renderHomepage = function(req, res, body){
 //     res.render('News-list', 
 //         {   title: 'Solidaridad Intranet',
