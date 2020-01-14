@@ -29,7 +29,7 @@ router.get('/:newsid', crtlNews.newsReadOne);
 
 
 // Questions
-router.get('/questions/:questionid', crtlQuestions.questionsReadOne);
+// router.get('/questions/:questionid', crtlQuestions.questionsReadOne);
 
 // router.get('/qa', crtlQuestions.questionsListByUpvotes);
 // router.post('/qa', crtlQuestions.questionsCreate);
