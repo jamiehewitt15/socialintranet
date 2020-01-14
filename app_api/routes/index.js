@@ -11,13 +11,11 @@ router.post('/users', crtlUsers.usersCreate);
 router.get('/users/:userid', crtlUsers.usersReadOne);
 
 // Home Page
-router.get('/news/:newsid', crtlNews.newsReadOne);
-router.get('/news/', crtlNews.newsList);
-router.post('/news/:newsid', crtlNews.doNewsLike);
+router.get('/:newsid', crtlNews.newsReadOne);
+router.get('/', crtlNews.newsList);
+router.post('/:newsid', crtlNews.doNewsLike);
 // router.get('/', crtlNews.newsListByLikes);
 // router.post('/', crtlNews.newsCreate);
-
-
 // router.get('/:questionid', crtlNews.newsReadOne);
 // router.put('/:questionid', crtlNews.newsUpdateOne);
 // router.post('/:questionid', crtlNews.newsUpvote);
@@ -31,9 +29,16 @@ router.post('/news/:newsid', crtlNews.doNewsLike);
 
 // discover
 
-// Home Page
-//router.get('/:newsid', crtlNews.newsReadOne);
-router.get('/qa/', crtlQuestions.questionsList);
+
+// Questions
+// router.get('/questions/:questionid', crtlQuestions.questionsReadOne);
+
+// router.get('/qa', crtlQuestions.questionsListByUpvotes);
+// router.post('/qa', crtlQuestions.questionsCreate);
+// router.get('/qa/:questionid', crtlQuestions.questionsReadOne);
+// router.put('/qa/:questionid', crtlQuestions.questionsUpdateOne);
+// router.post('/qa/:questionid', crtlQuestions.questionsUpvote);
+// router.delete('/qa/:questionid', crtlQuestions.questionsDeleteOne);
 
 // Answers
 

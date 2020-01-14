@@ -5,13 +5,14 @@ var answerSchema = new mongoose.Schema({
     comment: String
 });
 
-var questionsSchema = new mongoose.Schema({
+var fixSchema = new mongoose.Schema({
     name: String,
     status: String,
     summary: String,
+    skills: [String],
     description: String,
     upvotes: {type: Number, "default": 0, min: 0},
     comments: [answerSchema]
 });
 
-mongoose.model('questions', questionsSchema);
+mongoose.model('question', questionSchema);
