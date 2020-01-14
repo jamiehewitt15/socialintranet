@@ -67,7 +67,7 @@ block content
                                         each tag in question.tags
                                           span.badge.badge-primary(style='margin-right:5px;')= tag
                                 .card-footer
-                                  form(method='POST', action='/qa/' + '5e1a41668ff93a01c9308951' + '/questionsUpVotes')
+                                  form(method='POST', action='/qa/' + question._id + '/questionsUpVotes')
                                       input.btn.btn-success(type='submit', value='Up Vote')
                                   a.card-link(href='#')
                                     i.fa.fa-gittip

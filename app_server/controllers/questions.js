@@ -5,7 +5,7 @@ module.exports.questionsList = function(req, res) {
     console.log('questionsList start')
     var requestOptions;
     var path;
-    path = '/api/';
+    path = '/api/qa';
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",
@@ -15,6 +15,7 @@ module.exports.questionsList = function(req, res) {
             function(apierr, apires, apibody){
                 if(apires.statusCode == 200 && apibody.length){
                     renderQA(req, res, apibody);
+                    console.log('renderQA ')
             }
         }
     );
@@ -51,6 +52,6 @@ var renderQA = function(req, res, body){
                             }, 
                             questions: body
 });
-console.log("renderQA");
+console.log("renderQA finished");
 }
 

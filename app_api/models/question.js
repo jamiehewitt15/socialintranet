@@ -9,7 +9,7 @@ var questionSchema = new mongoose.Schema({
         text: {type: String, required: true},
         time: {type: String, required: true},
         //user: [userSchema],
-        profilePic: {type: Buffer, "default": "/images/user-profile.png"},
+        profilePic: {type: Buffer, contentType: String, "default": "http://localhost:3000/images/user-profile.png"},
         upVotes: {type: Number, "default": 0, min: 0},
         answered: {type: Boolean, "default": false},
         tags: [String]

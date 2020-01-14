@@ -36,15 +36,6 @@ module.exports.usersReadOne = function (req, res) {
     }
 };
 
-// module.exports.usersReadOne = function (req, res) { 
-//     Users
-//         .findById(req.params.userid)
-//         .exec(function(err, user){
-//             sendJsonResponse(res, 200, {"status" : "Success"});
-//         });
-    
-// };
-
 module.exports.usersCreate = function (req, res) {
     Users.create({
         name: req.body.name,
@@ -61,4 +52,20 @@ module.exports.usersCreate = function (req, res) {
             console.log("usersCreate Success")
         }
     });
+};
+
+
+module.exports.usersList = function (req, res) {
+    console.log('Users API start')
+    Users.find().exec(function(err, user){
+        
+        if(!user){
+            sendJsonResponse(res, 404, {'message' : 'Users not found'});
+        } else if (err){
+            sendJsonResponse(res, 404, err);
+        } else {
+            sendJsonResponse(res, 200, user);
+        }
+    });
+    console.log('Users render finish')
 };

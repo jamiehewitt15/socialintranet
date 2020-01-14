@@ -43,31 +43,32 @@ block content
                 .card-body
                   #myTabContent.tab-content
                     #posts.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='posts-tab')
-                      .form-group
-                        label.sr-only(for='message') Title
-                        textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline')
-                        label.sr-only(for='message') post
-                        textarea#message.form-control(rows='3', placeholder='Share news and updates about projects')
-                        
-                        .row
-                          .col-md-4
-                            label(for='exampleSelect1') 
-                              .h7.text-muted Region
-                            select#exampleSelect1.form-control
-                              each region in regions
-                                option #{region}
-                          .col-md-4
-                            label(for='exampleSelect1') 
-                              .h7.text-muted Country
-                            select#exampleSelect1.form-control
-                              each country in countries
-                                option #{country} 
-                          .col-md-4
-                            label(for='exampleSelect1') 
-                              .h7.text-muted Commodity
-                            select#exampleSelect1.form-control
-                              each commodity in commodities
-                                option #{commodity}                  
+                      form(method='POST', action='')
+                        .form-group
+                          label.sr-only(for='inputTitle') Title
+                          textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline', name='title')
+                          label.sr-only(for='inputText') Text
+                          textarea#message.form-control(rows='3', placeholder='Share news and updates about projects', name='text')
+                          
+                          .row
+                            .col-md-4
+                              label(for='inputRegion') 
+                                .h7.text-muted Region
+                              select#exampleSelect1.form-control(name='tags')
+                                each region in regions
+                                  option #{region}
+                            .col-md-4
+                              label(for='inputCountry') 
+                                .h7.text-muted Country
+                              select#exampleSelect1.form-control(name='tags')
+                                each country in countries
+                                  option #{country} 
+                            .col-md-4
+                              label(for='inputCommodity') 
+                                .h7.text-muted Commodity
+                              select#exampleSelect1.form-control(name='tags')
+                                each commodity in commodities
+                                  option #{commodity}                  
                     #images.tab-pane.fade(role='tabpanel', aria-labelledby='images-tab')
                       .form-group
                         .custom-file
