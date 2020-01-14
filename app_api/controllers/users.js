@@ -36,14 +36,6 @@ module.exports.usersReadOne = function (req, res) {
     }
 };
 
-// module.exports.usersReadOne = function (req, res) { 
-//     Users
-//         .findById(req.params.userid)
-//         .exec(function(err, user){
-//             sendJsonResponse(res, 200, {"status" : "Success"});
-//         });
-    
-// };
 
 module.exports.usersCreate = function (req, res) {
     Users.create({

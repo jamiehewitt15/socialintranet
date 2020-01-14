@@ -4,7 +4,7 @@ var apiOptions = { server : "http://localhost:3000" };
 module.exports.newsList = function(req, res) {
     var requestOptions;
     var path;
-    path = '/api/';
+    path = '/api/news/';
     requestOptions = {
         url: apiOptions.server + path,
         method: "GET",

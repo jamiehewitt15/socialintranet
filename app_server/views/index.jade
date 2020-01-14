@@ -123,7 +123,7 @@ block content
                                             each tag in post.tags
                                               span.badge.badge-primary(style="margin-right: 5px;")= tag
                                     .card-footer
-                                       form(method='POST', action='/' + post._id + '/newsLikes')
+                                       form(method='POST', action='/news/' + post._id + '/newsLikes')
                                           input.btn.btn-success(type='submit', value='Like')
                                           a.card-link(href='#')
                                               i.fa.fa-comment
@@ -159,7 +159,7 @@ block content
                                         each tag in post.tags
                                           span.badge.badge-primary(style='margin-right:5px;')= tag
                                 .card-footer
-                                  form(method='POST', action='/' + post._id + '/newsLikes')
+                                  form(method='POST', action='/news/' + post._id + '/newsLikes')
                                       input.btn.btn-success(type='submit', value='Like')
                                       a.card-link(href='#')
                                          i.fa.fa-comment
@@ -194,7 +194,7 @@ block content
                                         each tag in post.tags
                                           span.badge.badge-primary(style='margin-right:5px;')= tag
                                 .card-footer
-                                  form(method='POST', action='/' + post._id + '/newsLikes')
+                                  form(method='POST', action='/news/' + post._id + '/newsLikes')
                                       input.btn.btn-success(type='submit', value='Like')
                                       a.card-link(href='#')
                                          i.fa.fa-comment
