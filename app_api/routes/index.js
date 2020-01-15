@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var crtlQuestions = require('../controllers/questions');
 var crtlNews = require('../controllers/news');
+var crtlComments = require('../controllers/comments');
 var crtlUsers = require('../controllers/users');
 
 // Users
@@ -13,6 +14,7 @@ router.get('/users', crtlUsers.usersList);
 router.get('/:newsid', crtlNews.newsReadOne);
 router.get('/', crtlNews.newsList);
 router.post('/news', crtlNews.newsCreate);
+router.post('/:newsid/comment', crtlComments.newsCommentCreate);
 router.post('/like/:newsid', crtlNews.doNewsLike);
 router.post('/favourite/:newsid', crtlNews.doNewsFavourite);
 router.post('/report/:newsid', crtlNews.doNewsReport);

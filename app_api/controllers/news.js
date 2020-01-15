@@ -7,6 +7,7 @@ var sendJsonResponse = function (res, status, content){
 }
 
 module.exports.newsReadOne = function (req, res) {
+    console.log("API newsReadOne Start")
     // News.find({}, function(err, news) {
     //     if (!err){ 
     //         console.log(news);
@@ -25,6 +26,7 @@ module.exports.newsReadOne = function (req, res) {
                 sendJsonResponse(res, 404, err);                
             } else {
                 sendJsonResponse(res, 200, news);
+                console.log("API newsReadOne Success")
             }
         });
     }else{

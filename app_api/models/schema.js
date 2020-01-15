@@ -5,6 +5,12 @@ var pageSchema = new mongoose.Schema({
      strapline: {type: String, required: true}
  });
 
+ var commentSchema = new mongoose.Schema({
+    name: String,
+    comment: String
+});
+
+
 var newsSchema = new mongoose.Schema({
     title:  {type: String, required: true},
     subTitle:  {type: String},
@@ -19,7 +25,8 @@ var newsSchema = new mongoose.Schema({
     countryTag: String,
     commodityTag: String,
     report: {type: Boolean, "default": false},
-    favourite: {type: Boolean, "default": false}        
+    favourite: {type: Boolean, "default": false},     
+    comments: [commentSchema]   
 },
 {timestamps: true}
 );

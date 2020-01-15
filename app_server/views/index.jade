@@ -135,8 +135,9 @@ block content
                                             form(method='POST', action='/' + post._id + '/newsFavourite')
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                            form(method='POST', action='')
-                                              input.btn.btn-outline-primary(type='submit', value='Comment')
+                                            a.btn.btn-outline-primary(href='/newsComment/' + post._id) Comment
+                                            //- form(method='GET', action='/' + post._id + '/newsComment')
+                                            //-   input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
                                             form(method='POST', action='/' + post._id + '/newsReport')
                                               input.btn.btn-outline-danger(type='submit', value='report')

@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  div(style='margin-top:30px; margin-left:100px; margin-right:100px;')
+    .card.gedf-card(style='margin-top:20px')
+                                .card-header
+                                  .d-flex.justify-content-between.align-items-center
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= news.title
+                                        .h7.text-muted= news.user
+                                    div
+                                      | #{news.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{news.time}
+                                  a.card-link(href='#')
+                                    h5.card-title= news.subTitle
+                                  p.card-text
+                                    | #{news.text}
+                                  div
+                                        each tag in news.tags
+                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                .card-footer
+                                       .row
+                                          .col-md-3
+                                            form(method='POST', action='/' + news._id + '/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                          .col-md-3
+                                            form(method='POST', action='/' + news._id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                            form(method='POST', action='/' + news._id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')
+      h3 Comments:
+        each comment in news.comments
+          .card.text-white.bg-primary.mb-3(style='min-width: 100%;')
+            .card-header 30/10/2019 20:30
+            .card-body
+              h4.card-title= comment.name
+              p.card-text= comment.comment
+
+      form(method='POST', action='')
+        fieldset
+          legend New Comment
+          .form-group
+            label(for='inputName') Name
+            input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
+            small#nameHelp.form-text.text-muted This will appear above your comment.
+          .form-group
+            label(for='inputComment') Comment
+            textarea#comment.form-control(rows='3', placeholder='Comment on the post')
+          input.btn.btn-primary(type='submit', value='Submit')
