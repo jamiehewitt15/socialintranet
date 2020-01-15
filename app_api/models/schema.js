@@ -14,9 +14,15 @@ var newsSchema = new mongoose.Schema({
     following: Boolean,
     profilePic: Buffer,
     likes: {type: Number, "default": 0, min: 0},
-    tags: [String]
-                                
-});
+    tags: [String],
+    regionTag: String,
+    countryTag: String,
+    commodityTag: String,
+    report: Boolean,
+    favourite: Boolean        
+},
+{timestamps: true}
+);
 
 // var userSchema = new mongoose.Schema({
 //     name: {type: String, required: true},

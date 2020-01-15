@@ -11,15 +11,10 @@ router.get('/users', crtlUsers.usersList);
 
 // Home Page
 router.get('/:newsid', crtlNews.newsReadOne);
-//router.post('/', crtlNews.newsList);
 router.get('/', crtlNews.newsList);
 router.post('/news', crtlNews.newsCreate);
-// router.get('/', crtlNews.newsListByLikes);
-// router.post('/', crtlNews.newsCreate);
-// router.get('/:questionid', crtlNews.newsReadOne);
-// router.put('/:questionid', crtlNews.newsUpdateOne);
-// router.post('/:questionid', crtlNews.newsUpvote);
-// router.delete('/:questionid', crtlNews.newsDeleteOne);
+router.post('/like/:newsid', crtlNews.doNewsLike);
+
 
 // Questions
 router.get('/qa', crtlQuestions.questionsList);

@@ -47,8 +47,12 @@ module.exports.newsList = function (req, res) {
 module.exports.newsCreate = function (req, res) {
     News.create({
         title: req.body.title,
+        subTitle: req.body.subTitle,
         text: req.body.text,
-        tags: [req.body.tag1, req.body.tag2, req.body.tag3]
+        regionTag: req.body.regionTag,
+        countryTag: req.body.countryTag,
+        commodityTag: req.body.commodityTag,
+
     }, function(err, news){
         if(err){
             sendJsonResponse(res, 400, err);

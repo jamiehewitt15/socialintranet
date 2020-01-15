@@ -26,8 +26,11 @@ module.exports.doNewNews = function(req, res){
     console.log("doNewNews start")
     postData = {
         title: req.body.title,
+        subTitle: req.body.subTitle,
         text: req.body.text,
-        tags: [req.body.tag1, req.body.tag2, req.body.tag3]
+        regionTag: req.body.regionTag,
+        countryTag: req.body.countryTag,
+        commodityTag: req.body.commodityTag,
         
     };
     requestOptions = {
@@ -46,7 +49,44 @@ module.exports.doNewNews = function(req, res){
 module.exports.doNewsLikes = function(req, res) {
     var requestOptions;
     var path;
-    path = '/api/' + req.params.newsid;
+    path = '/api/like/' + req.params.newsid;
+
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "POST",
+        json:  {}
+    };
+    request(requestOptions,
+        function(apierr, apires, apibody){
+            {
+                res.redirect('/');
+        }
+    }
+);
+};
+
+module.exports.doNewsFavourite = function(req, res) {
+    var requestOptions;
+    var path;
+    path = '/api/favourite/' + req.params.newsid;
+
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: "POST",
+        json:  {}
+    };
+    request(requestOptions,
+        function(apierr, apires, apibody){
+            {
+                res.redirect('/');
+        }
+    }
+);
+};
+module.exports.doNewsReport = function(req, res) {
+    var requestOptions;
+    var path;
+    path = '/api/report' + req.params.newsid;
 
     requestOptions = {
         url: apiOptions.server + path,
@@ -75,6 +115,7 @@ var renderHomepage = function(req, res, body){
                             regions: ["East Africa", "Central Africa", "Southern Africa", "West Africa", "Asia", "Europe", "South America", "North America"],
                             countries: ["Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "DRC", "Zimbabwe", "India", "China", "Nigeria", "Brazil", "Bolivia"],
                             commodities: ["Coffee", "Tea", "Leather", "Gold", "Dairy", "Poultry", "Textiles", "Palm Oil", "Soy"],
-                            news: body
+                            news: body,
+                            
 });
 }
