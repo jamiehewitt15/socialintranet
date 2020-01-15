@@ -84,9 +84,10 @@ module.exports.doNewsFavourite = function(req, res) {
 );
 };
 module.exports.doNewsReport = function(req, res) {
+    console.log("doNewsReport started");
     var requestOptions;
     var path;
-    path = '/api/report' + req.params.newsid;
+    path = '/api/report/' + req.params.newsid;
 
     requestOptions = {
         url: apiOptions.server + path,
@@ -100,6 +101,7 @@ module.exports.doNewsReport = function(req, res) {
         }
     }
 );
+console.log("doNewsReport finished");
 };
 
 var renderHomepage = function(req, res, body){

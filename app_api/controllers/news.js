@@ -128,7 +128,7 @@ module.exports.doNewsFavourite = function (req, res) {
         };
 
 module.exports.doNewsReport = function (req, res) {
-            console.log("doNewsReport starting")
+            console.log("API doNewsReport starting")
                 if(req.params && req.params.newsid) {
                     News.findById(req.params.newsid).exec(
                         function(err, news){
@@ -154,7 +154,7 @@ module.exports.doNewsReport = function (req, res) {
                 }else{
                     sendJsonResponse(res, 404, {'message': 'No newsid in request'});
                 }
-                console.log("doNewsReport finishing")
+                console.log("API doNewsReport finishing")
             };
 // module.exports.newsListByLikes = function (req, res) {
 //     News.find().exec(function(err, news){
