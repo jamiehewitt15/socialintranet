@@ -44,6 +44,25 @@ module.exports.newsList = function (req, res) {
     });
 };
 
+module.exports.newsCreate = function (req, res) {
+    News.create({
+        title: req.body.title,
+        text: req.body.text,
+        tags: [req.body.tag1, req.body.tag2, req.body.tag3]
+    }, function(err, news){
+        if(err){
+            sendJsonResponse(res, 400, err);
+            console.log("Error")
+            console.log(res)
+            console.log(err)
+            console.log(news)
+        }else{
+            sendJsonResponse(res, 201, news);
+            console.log("newsCreate Success")
+        }
+    });
+};
+
 module.exports.doNewsLike = function (req, res) {
     console.log("doNewsLike starting")
         if(req.params && req.params.newsid) {

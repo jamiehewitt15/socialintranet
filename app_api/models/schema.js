@@ -7,10 +7,10 @@ var pageSchema = new mongoose.Schema({
 
 var newsSchema = new mongoose.Schema({
     title:  {type: String, required: true},
-    subTitle:  {type: String, required: true},
+    subTitle:  {type: String},
     text:  {type: String, required: true},
     time: String,
-    user: {type: String, required: true},
+    user: {type: String},
     following: Boolean,
     profilePic: Buffer,
     likes: {type: Number, "default": 0, min: 0},

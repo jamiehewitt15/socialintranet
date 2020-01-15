@@ -8,6 +8,7 @@ var questionsController = require("../controllers/questions")
 /* news */
 router.get('/', newsController.newsList);
 router.post('/:newsid/newsLikes', newsController.doNewsLikes);
+router.post('/', newsController.doNewNews);
 
 /* questions */
 router.get('/qa', questionsController.questionsList);

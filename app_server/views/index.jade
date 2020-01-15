@@ -54,21 +54,22 @@ block content
                             .col-md-4
                               label(for='inputRegion') 
                                 .h7.text-muted Region
-                              select#exampleSelect1.form-control(name='tags')
+                              select#regionSelect.form-control(name='tag1')
                                 each region in regions
                                   option #{region}
                             .col-md-4
                               label(for='inputCountry') 
                                 .h7.text-muted Country
-                              select#exampleSelect1.form-control(name='tags')
+                              select#countrySelect.form-control(name='tag2')
                                 each country in countries
                                   option #{country} 
                             .col-md-4
                               label(for='inputCommodity') 
                                 .h7.text-muted Commodity
-                              select#exampleSelect1.form-control(name='tags')
+                              select#commoditySelect.form-control(name='tag3')
                                 each commodity in commodities
-                                  option #{commodity}                  
+                                  option #{commodity}   
+                        input.btn.btn-primary(type='submit', value='Submit')               
                     #images.tab-pane.fade(role='tabpanel', aria-labelledby='images-tab')
                       .form-group
                         .custom-file
@@ -81,9 +82,7 @@ block content
                           input#customFile.custom-file-input(type='file')
                           label.custom-file-label(for='customFile') Upload file
                       .py-4
-                  .btn-toolbar.justify-content-between
-                    .btn-group
-                      button.btn.btn-primary(type='submit') share
+                  
                     
               // Post /////          
               div

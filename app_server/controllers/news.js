@@ -19,6 +19,30 @@ module.exports.newsList = function(req, res) {
     );
 };
 
+module.exports.doNewNews = function(req, res){
+    var requestOptions, path, postData;
+    
+    path = '/api/news';
+    console.log("doNewNews start")
+    postData = {
+        title: req.body.title,
+        text: req.body.text,
+        tags: [req.body.tag1, req.body.tag2, req.body.tag3]
+        
+    };
+    requestOptions = {
+        url: apiOptions.server + path,
+        method: 'POST',
+        json: postData
+    };
+    request(requestOptions,
+        function(apierr, apires, apibody){
+            res.redirect('/')
+        }
+    );
+    console.log("doNewNews finished")
+}
+
 module.exports.doNewsLikes = function(req, res) {
     var requestOptions;
     var path;

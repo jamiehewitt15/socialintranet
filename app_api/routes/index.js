@@ -11,8 +11,9 @@ router.get('/users', crtlUsers.usersList);
 
 // Home Page
 router.get('/:newsid', crtlNews.newsReadOne);
+//router.post('/', crtlNews.newsList);
 router.get('/', crtlNews.newsList);
-router.post('/:newsid', crtlNews.doNewsLike);
+router.post('/news', crtlNews.newsCreate);
 // router.get('/', crtlNews.newsListByLikes);
 // router.post('/', crtlNews.newsCreate);
 // router.get('/:questionid', crtlNews.newsReadOne);
@@ -21,7 +22,7 @@ router.post('/:newsid', crtlNews.doNewsLike);
 // router.delete('/:questionid', crtlNews.newsDeleteOne);
 
 // Questions
-router.get('/questions', crtlQuestions.questionsList);
+router.get('/qa', crtlQuestions.questionsList);
 router.post('/qa/:questionid', crtlQuestions.doQuestionsUpvote);
 router.get('/qa/:questionid', crtlQuestions.questionsReadOne);
 
