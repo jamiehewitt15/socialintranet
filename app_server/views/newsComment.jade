@@ -38,10 +38,13 @@ block content
                                               input.btn.btn-outline-danger(type='submit', value='report')
       h3 Comments:
         each comment in news.comments
-          .card.text-white.bg-primary.mb-3(style='min-width: 100%;')
-            .card-header 30/10/2019 20:30
-            .card-body
+          .card.gedf-card(style='margin-top:20px')
+            .card-header 
               h4.card-title= comment.name
+            .card-body
+              p.card-text
+                .text-muted.h7.mb-2
+                | 30/10/2019 20:30
               p.card-text= comment.comment
 
       form(method='POST', action='')
@@ -53,5 +56,5 @@ block content
             small#nameHelp.form-text.text-muted This will appear above your comment.
           .form-group
             label(for='inputComment') Comment
-            textarea#comment.form-control(rows='3', placeholder='Comment on the post')
+            textarea#comment.form-control(rows='3', placeholder='Comment on the post', name='comment')
           input.btn.btn-primary(type='submit', value='Submit')
