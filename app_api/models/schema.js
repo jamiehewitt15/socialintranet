@@ -18,8 +18,8 @@ var newsSchema = new mongoose.Schema({
     regionTag: String,
     countryTag: String,
     commodityTag: String,
-    report: Boolean,
-    favourite: Boolean        
+    report: {type: Boolean, "default": false},
+    favourite: {type: Boolean, "default": false}        
 },
 {timestamps: true}
 );

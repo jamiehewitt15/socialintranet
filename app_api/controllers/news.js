@@ -97,8 +97,65 @@ module.exports.doNewsLike = function (req, res) {
         console.log("doNewsLike finishing")
     };
 
+module.exports.doNewsFavourite = function (req, res) {
+        console.log("doNewsFavourite starting")
+            if(req.params && req.params.newsid) {
+                News.findById(req.params.newsid).exec(
+                    function(err, news){
+                        
+                        if(!news){
+                            sendJsonResponse(res, 404, {'message' : 'News not found'});
+                        } else if (err){
+                            sendJsonResponse(res, 404, err);                
+                        } else {
+                            news.favourite = true;
+                            console.log("doNewsFavourite favourite:")
+                            console.log(news.likes)
+                            news.save(function(err, news){
+                                if(err){
+                                    sendJsonResponse(res, 404, err);
+                                }else{
+                                    sendJsonResponse(res, 200, news);
+                                }
+                            });
+                            
+                        }
+                });
+            }else{
+                sendJsonResponse(res, 404, {'message': 'No newsid in request'});
+            }
+            console.log("doNewsFavourite finishing")
+        };
 
-
+module.exports.doNewsReport = function (req, res) {
+            console.log("doNewsReport starting")
+                if(req.params && req.params.newsid) {
+                    News.findById(req.params.newsid).exec(
+                        function(err, news){
+                            
+                            if(!news){
+                                sendJsonResponse(res, 404, {'message' : 'News not found'});
+                            } else if (err){
+                                sendJsonResponse(res, 404, err);                
+                            } else {
+                                news.report = true;
+                                console.log("doNewsReport Report:");
+                                console.log(news.report);
+                                news.save(function(err, news){
+                                    if(err){
+                                        sendJsonResponse(res, 404, err);
+                                    }else{
+                                        sendJsonResponse(res, 200, news);
+                                    }
+                                });
+                                
+                            }
+                    });
+                }else{
+                    sendJsonResponse(res, 404, {'message': 'No newsid in request'});
+                }
+                console.log("doNewsReport finishing")
+            };
 // module.exports.newsListByLikes = function (req, res) {
 //     News.find().exec(function(err, news){
 //         if(!news){

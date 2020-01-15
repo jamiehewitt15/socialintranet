@@ -14,7 +14,8 @@ router.get('/:newsid', crtlNews.newsReadOne);
 router.get('/', crtlNews.newsList);
 router.post('/news', crtlNews.newsCreate);
 router.post('/like/:newsid', crtlNews.doNewsLike);
-
+router.post('/favourite/:newsid', crtlNews.doNewsFavourite);
+router.post('/report/:newsid', crtlNews.doNewsReport);
 
 // Questions
 router.get('/qa', crtlQuestions.questionsList);
