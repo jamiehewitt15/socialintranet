@@ -45,6 +45,8 @@ block content
                     #posts.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='posts-tab')
                       form(method='POST', action='')
                         .form-group                         
+                          label.sr-only(for='inputName') Name
+                          textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Your Full Name', name='user')
                           label.sr-only(for='inputTitle') Title
                           textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline', name='title')
                           label.sr-only(for='inputTitle') Subtitle

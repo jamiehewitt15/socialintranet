@@ -46,6 +46,7 @@ module.exports.doNewNews = function(req, res){
     path = '/api/news';
     console.log("doNewNews start")
     postData = {
+        user: req.body.user,
         title: req.body.title,
         subTitle: req.body.subTitle,
         text: req.body.text,

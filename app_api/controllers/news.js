@@ -48,6 +48,7 @@ module.exports.newsList = function (req, res) {
 
 module.exports.newsCreate = function (req, res) {
     News.create({
+        user: req.body.user,
         title: req.body.title,
         subTitle: req.body.subTitle,
         text: req.body.text,

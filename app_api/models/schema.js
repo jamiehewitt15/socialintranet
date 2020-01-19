@@ -16,7 +16,7 @@ var newsSchema = new mongoose.Schema({
     subTitle:  {type: String},
     text:  {type: String, required: true},
     time: String,
-    user: {type: String},
+    user: String,
     following: Boolean,
     profilePic: Buffer,
     likes: {type: Number, "default": 0, min: 0},
