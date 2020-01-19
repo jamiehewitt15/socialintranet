@@ -36,7 +36,10 @@ block content
                                           .col-md-3
                                             form(method='POST', action='/' + news._id + '/newsReport')
                                               input.btn.btn-outline-danger(type='submit', value='report')
-      h3 Comments:
+       
+        div(style='margin-top:30px; margin-left:0px;')
+          h3 Comments:
+        
         each comment in news.comments
           .card.gedf-card(style='margin-top:20px')
             .card-header 
@@ -57,4 +60,4 @@ block content
           .form-group
             label(for='inputComment') Comment
             textarea#comment.form-control(rows='3', placeholder='Comment on the post', name='comment')
-          input.btn.btn-primary(type='submit', value='Submit')
+            input.btn.btn-primary(type='submit', value='Submit')
