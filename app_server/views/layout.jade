@@ -1,5 +1,5 @@
 doctype html
-html
+html(ng-app='intranetApp')
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
@@ -25,7 +25,8 @@ html
               img(src='/images/user-profile.png', alt='Profile Picture', style='width:36px; margin-left:10px')
     block content
     
-      
+    script(src="/angular/angular.min.js")
+    script(src="/angular/intranetApp.js")  
     script(src="/javascripts/jquery-3.4.1.min.js")
     script(src="/bootstrap/js/bootstrap.min.js")
 

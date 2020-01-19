@@ -19,6 +19,7 @@ router.get('/qa', questionsController.questionsList);
 router.post('qa/:questionsid/questionsUpVotes', questionsController.doQuestionsUpvotes);
 
 /* users */
+router.get('/users', action.showUsers);
 router.get('/newuser', action.newUser);
 router.post('/newuser', action.doNewUser);
 

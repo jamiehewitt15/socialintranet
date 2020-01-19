@@ -1,6 +1,10 @@
 var request = require('request');
 var apiOptions = { server : "http://localhost:3000" };
 
+module.exports.showUsers = function(req, res) {
+    res.render('users', { title: 'Create a New User' });
+};
+
 module.exports.newUser = function(req, res) {
     res.render('newUser', { title: 'Create a New User' });
 };
