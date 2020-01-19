@@ -7,7 +7,12 @@ block content
     p All users are shown bellow
   hr
 
-  .container-fluid.gedf-wrapper
+
+  div(ng-controller="myController")
+    ul  
+      li(ng-repeat="item in Items")
+
+  .container-fluid.gedf-wrapper(ng-controller="usersList")
           .row
             .col-md-3
               .card
@@ -15,5 +20,7 @@ block content
                   .h5 Users
                 ul.list-group.list-group-flush
                   li.list-group-item
-                    .h6.text-muted Region
+                    .h6.text-muted 
+                    p(ng-repeat="userName in users.name") 
+                      | {{ userName }}
                     
