@@ -1,7 +1,7 @@
 angular.module('userListController', [])
 
 var usersList = function ($scope){
-    $scope.data - {
+    $scope.data = {
         users: [{
             name: "Jamie Hewitt",
             location: "UK"
@@ -13,12 +13,8 @@ var usersList = function ($scope){
     }
 }
 
-var myController = function($scope)
-{
-  $scope.items = ["one", "two", "three"];
-};
 
 console.log("Angular Accessed")
 angular
     .module('intranetApp')
-    .controller('userListController', 'userListController')
+    .controller('usersList', 'usersList')
