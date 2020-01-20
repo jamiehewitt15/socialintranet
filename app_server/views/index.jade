@@ -252,18 +252,4 @@ block content
                                           .col-md-3
                                             form(method='POST', action='/' + id + '/newsReport')
                                               input.btn.btn-outline-danger(type='submit', value='report') 
-            .col-md-3
-              .card
-                .card-body
-                  .h5= fullName
-                  .h7.text-muted Fullname : #{fullName}
-                  .h7
-                    | #{description}
-                  a.card-link(href='/profile') View Profile
-                ul.list-group.list-group-flush
-                  li.list-group-item
-                    .h6.text-muted Followers
-                    .h5= followers
-                  li.list-group-item
-                    .h6.text-muted Following
-                    .h5= following
+            
