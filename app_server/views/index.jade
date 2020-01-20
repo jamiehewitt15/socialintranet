@@ -153,17 +153,17 @@ block content
                                         .row
                                           .col-md-3
                                            h4 
-                                            form(method='POST', action='/' +  id + '/newsLikes')
+                                            form(method='POST', action="{{'/' + news._id + '/newsLikes'}}")
                                               input.btn.btn-outline-info(type='submit', value='Like')
                                               
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsFavourite')
+                                            form(method='POST', action="{{'/' + news._id + '/newsFavourite'}}")
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                              form(method='GET', action="/{{ news._id }}/newsComment")
+                                              form(method='GET', action="{{'/newsComment/' +  news._id }}")
                                                 input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsReport')
+                                            form(method='POST', action="{{'/' + news._id + '/newsReport'}}")
                                               input.btn.btn-outline-danger(type='submit', value='report')      
                   #popular.tab-pane.fade
                           // - \\\\\\\Popular Posts 
