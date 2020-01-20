@@ -7,11 +7,6 @@ block content
     p All users are shown bellow
   hr
 
-
-  div(ng-controller="myController")
-    ul  
-      li(ng-repeat="item in Items")
-
   .container-fluid.gedf-wrapper(ng-controller="usersList")
           .row
             .col-md-3
@@ -20,7 +15,6 @@ block content
                   .h5 Users
                 ul.list-group.list-group-flush
                   li.list-group-item
-                    .h6.text-muted 
-                    p(ng-repeat="userName in users.name") 
-                      | {{ userName }}
+                    .h6.text-muted(ng-repeat="user in data.users") 
+                       | {{ user.name }} - Joined: {{user.joined | date : 'dd/MM/yyyy'}}
                     
