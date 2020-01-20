@@ -95,14 +95,17 @@ block content
                                   option #{commodity}   
                         input.btn.btn-primary(type='submit', value='Submit')               
                     #images.tab-pane.fade(role='tabpanel', aria-labelledby='images-tab')
+                      .h5 ** Feature coming soon **
                       .form-group
                         .custom-file
                           input#customFile.custom-file-input(type='file')
                           label.custom-file-label(for='customFile') Upload image
                       .py-4
                     #files.tab-pane.fade(role='tabpanel', aria-labelledby='files-tab')
+                      .h5 ** Feature coming soon **
                       .form-group
                         .custom-file
+                          
                           input#customFile.custom-file-input(type='file')
                           label.custom-file-label(for='customFile') Upload file
                       .py-4
@@ -197,18 +200,18 @@ block content
                                         .row
                                           .col-md-3
                                            h4 
-                                            form(method='POST', action='/' + id + '/newsLikes')
+                                            form(method='POST', action="{{'/' + news._id + '/newsLikes'}}")
                                               input.btn.btn-outline-info(type='submit', value='Like')
                                               
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsFavourite')
+                                            form(method='POST', action="{{'/' + news._id + '/newsFavourite'}}")
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                              form(method='GET', action='/' + id  + '/newsComment')
+                                              form(method='GET', action="{{'/newsComment/' +  news._id }}")
                                                 input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsReport')
-                                              input.btn.btn-outline-danger(type='submit', value='report')                      
+                                            form(method='POST', action="{{'/' + news._id + '/newsReport'}}")
+                                              input.btn.btn-outline-danger(type='submit', value='report')                       
                   #favourites.tab-pane.fade
                           // - \\\\\\\Favourites Posts 
                           .card.gedf-card(style='margin-top:20px')(ng-repeat="news in data | filter : textFilter | filter : tagFilter")(ng-if = "news.report == false && news.favourite == true")
@@ -241,15 +244,16 @@ block content
                                         .row
                                           .col-md-3
                                            h4 
-                                            form(method='POST', action='/{{ news._id }}/newsLikes')
+                                            form(method='POST', action="{{'/' + news._id + '/newsLikes'}}")
                                               input.btn.btn-outline-info(type='submit', value='Like')
+                                              
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsFavourite')
+                                            form(method='POST', action="{{'/' + news._id + '/newsFavourite'}}")
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                              form(method='GET', action='/'  + '/newsComment')
+                                              form(method='GET', action="{{'/newsComment/' +  news._id }}")
                                                 input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
-                                            form(method='POST', action='/' + id + '/newsReport')
+                                            form(method='POST', action="{{'/' + news._id + '/newsReport'}}")
                                               input.btn.btn-outline-danger(type='submit', value='report') 
             
