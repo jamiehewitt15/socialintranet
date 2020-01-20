@@ -10,11 +10,24 @@ block content
   .container-fluid.gedf-wrapper(ng-controller="usersList")
           .row
             .col-md-3
-              .card
-                .card-body
-                  .h5 Users
-                ul.list-group.list-group-flush
-                  li.list-group-item
-                    .h6.text-muted(ng-repeat="user in data.users") 
-                       | {{ user.name }} - Joined: {{user.joined | date : 'dd/MM/yyyy'}}
-                    
+                .card
+                  .card-body
+                    .h5 Search
+                  label(for="filter") 
+                  input#filter(type="text", name="filter", ng-model="textFilter")
+                  input(type='button', ng-click='AddData(); saved=true;', value='Hide Users')
+
+
+              .col-md-6.gedf-main
+                .card.gedf-card(ng-hide="saved")
+                
+                  .card-body
+                    .h5 All Users
+                  ul.list-group.list-group-flush
+                    li.list-group-item
+                      .h6(ng-repeat="user in data | filter : textFilter") 
+                        | {{ user.name }} - {{ user.description }}
+                     
+                        
+                        
+                      
