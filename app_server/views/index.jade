@@ -17,21 +17,24 @@ block content
                   input#filter(type="text", name="filter", ng-model="textFilter")
                 ul.list-group.list-group-flush
                   li.list-group-item
-                    .h6.text-muted Region:
+                    .h6.text 
+                      | Region:
                      label(for='inputRegion')
                       select#regionSelect.form-control(name='regionTag', ng-model="tagFilter")
                         each region in regions
                           option #{region}
 
                   li.list-group-item
-                    .h6.text-muted Country: 
+                    .h6.text 
+                      | Country: 
                      label(for='inputCountry')
                       select#regionSelect.form-control(name='countryTag', ng-model="tagFilter")
                         each country in countries
                           option #{country}
                     
                   li.list-group-item
-                    .h6.text-muted Commodity/t
+                    .h6.text 
+                      | Commodity
                      label(for='inputCommodity')
                       select#regionSelect.form-control(name='commodityTag', ng-model="tagFilter")
                         each commodity in commodities
@@ -63,8 +66,7 @@ block content
                                 select#regionSelect.form-control(name='user', style="margin-bottom:10px;")
                                   option(ng-repeat="user in data") 
                                     | {{ user.name }}                 
-                          //- label.sr-only(for='inputName') Name
-                          //- textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Your Full Name', name='user')
+                          
                           label.sr-only(for='inputTitle') Title
                           textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline', name='title')
                           label.sr-only(for='inputTitle') Subtitle
@@ -118,9 +120,9 @@ block content
                 
                 #myTabContent.tab-content
                   #all.tab-pane.fade.active.show
-                              // - \\\\\\\All Posts 
-                          div(ng-repeat="news in data | filter : textFilter | filter : tagFilter")
-                              //if ({{news.report}} != false)
+                          // - \\\\\\\All Posts 
+                          div(ng-repeat="news in data | filter : textFilter | filter : tagFilter")(ng-if = "news.report == false")
+                            
                               .card.gedf-card(style='margin-top:20px')
                                     .card-header
                                       .d-flex.justify-content-between.align-items-center
@@ -147,41 +149,109 @@ block content
                                         span.badge.badge-primary(style='margin-right:5px;') {{news.countryTag}}
                                         span.badge.badge-primary(style='margin-right:5px;') {{news.commodityTag}}
                                     .card-footer
-                                    
-                                       .row
+                                          
+                                        .row
                                           .col-md-3
-                                            form(method='POST', action='/' + '{{news._id}}' + '/newsLikes')
+                                           h4 
+                                            form(method='POST', action='/' +  id + '/newsLikes')
                                               input.btn.btn-outline-info(type='submit', value='Like')
+                                              
                                           .col-md-3
-                                            form(method='POST', action='/' + '{{news._id}}' + '/newsFavourite')
+                                            form(method='POST', action='/' + id + '/newsFavourite')
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                              form(method='GET', action='/' + id + '/newsComment')
+                                              form(method='GET', action="/{{ news._id }}/newsComment")
                                                 input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
                                             form(method='POST', action='/' + id + '/newsReport')
                                               input.btn.btn-outline-danger(type='submit', value='report')      
-                                    
-
-
-
-                            
-                  div
-                    ul.pagination
-                      li.page-item.disabled
-                        a.page-link(href='#') «
-                      li.page-item.active
-                        a.page-link(href='#') 1
-                      li.page-item
-                        a.page-link(href='#') 2
-                      li.page-item
-                        a.page-link(href='#') 3
-                      li.page-item
-                        a.page-link(href='#') 4
-                      li.page-item
-                        a.page-link(href='#') 5
-                      li.page-item
-                        a.page-link(href='#') »
+                  #popular.tab-pane.fade
+                          // - \\\\\\\Popular Posts 
+                          .card.gedf-card(style='margin-top:20px')(ng-repeat="news in data | filter : textFilter | filter : tagFilter")(ng-if = "news.report == false && news.likes > 20")
+                                    .card-header
+                                      .d-flex.justify-content-between.align-items-center
+                                          .d-flex.justify-content-between.align-items-center
+                                            .mr-2
+                                                img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
+                                            .ml-2
+                                                .h5.m-0 {{news.title}} 
+                                                .h7.text-muted {{news.user}}
+                                          div
+                                          | {{news.likes}} Likes
+                                            
+                                    .card-body
+                                      .text-muted.h7.mb-2
+                                          i.fa.fa-clock-o
+                                          |{{news.createdAt | date : 'dd/MM/yyyy'}}
+                                      a.card-link(href='#')
+                                          h5.card-title {{news.subTitle}}
+                                      p.card-text
+                                        | {{news.text}}
+                                        
+                                      div
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.regionTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.countryTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.commodityTag}}
+                                    .card-footer
+                                          
+                                        .row
+                                          .col-md-3
+                                           h4 
+                                            form(method='POST', action='/' + id + '/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                              
+                                          .col-md-3
+                                            form(method='POST', action='/' + id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                              form(method='GET', action='/' + id  + '/newsComment')
+                                                input.btn.btn-outline-primary(type='submit', value='Comment')
+                                          .col-md-3
+                                            form(method='POST', action='/' + id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')                      
+                  #favourites.tab-pane.fade
+                          // - \\\\\\\Favourites Posts 
+                          .card.gedf-card(style='margin-top:20px')(ng-repeat="news in data | filter : textFilter | filter : tagFilter")(ng-if = "news.report == false && news.favourite == true")
+                                    .card-header
+                                      .d-flex.justify-content-between.align-items-center
+                                          .d-flex.justify-content-between.align-items-center
+                                            .mr-2
+                                                img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
+                                            .ml-2
+                                                .h5.m-0 {{news.title}} 
+                                                .h7.text-muted {{news.user}}
+                                          div
+                                          | {{news.likes}} Likes
+                                            
+                                    .card-body
+                                      .text-muted.h7.mb-2
+                                          i.fa.fa-clock-o
+                                          |{{news.createdAt | date : 'dd/MM/yyyy'}}
+                                      a.card-link(href='#')
+                                          h5.card-title {{news.subTitle}}
+                                      p.card-text
+                                        | {{news.text}}
+                                        
+                                      div
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.regionTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.countryTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.commodityTag}}
+                                    .card-footer
+                                          
+                                        .row
+                                          .col-md-3
+                                           h4 
+                                            form(method='POST', action='/{{ news._id }}/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                          .col-md-3
+                                            form(method='POST', action='/' + id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                              form(method='GET', action='/'  + '/newsComment')
+                                                input.btn.btn-outline-primary(type='submit', value='Comment')
+                                          .col-md-3
+                                            form(method='POST', action='/' + id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report') 
             .col-md-3
               .card
                 .card-body
