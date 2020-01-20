@@ -148,3 +148,112 @@ block content
                                   a.card-link(href='#')
                                     i.fa.fa-comment
                                     |  Up Vote  
+
+
+
+
+
+
+
+
+
+//.card-footer
+                                       .row
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                            a.btn.btn-outline-primary(href='/newsComment/' + post._id) Comment
+                                            //- form(method='GET', action='/' + post._id + '/newsComment')
+                                            //-   input.btn.btn-outline-primary(type='submit', value='Comment')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')
+                                          
+                              
+                  //#popular.tab-pane.fade
+                    each post in news
+                            if (post.report == false && post.likes > 20)
+                              .card.gedf-card(style='margin-top:20px')
+                                .card-header
+                                  .d-flex.justify-content-between.align-items-center
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= post.title
+                                        .h7.text-muted= post.user
+                                    div
+                                      | #{post.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{post.time}
+                                  a.card-link(href='#')
+                                    h5.card-title= post.subTitle
+                                  p.card-text
+                                    | #{post.text}
+                                  div
+                                        each tag in post.tags
+                                          span.badge.badge-primary(style='margin-right:5px;')= tag
+                                .card-footer
+                                       .row
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                            form(method='POST', action='')
+                                              input.btn.btn-outline-primary(type='submit', value='Comment')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')
+                  
+                  //#favourites.tab-pane.fade
+                    each post in news
+                      if (post.report == false && post.favourite == true )
+                              .card.gedf-card(style='margin-top:20px')
+                                .card-header
+                                  .d-flex.justify-content-between.align-items-center
+                                    .d-flex.justify-content-between.align-items-center
+                                      .mr-2
+                                        img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
+                                      .ml-2
+                                        .h5.m-0= post.title
+                                        .h7.text-muted= post.user
+                                    div
+                                      | #{post.likes} Likes
+                                        
+                                .card-body
+                                  .text-muted.h7.mb-2
+                                    i.fa.fa-clock-o
+                                    | #{post.createdAt}
+                                  a.card-link(href='#')
+                                    h5.card-title= post.subTitle
+                                  p.card-text
+                                    | #{post.text}
+                                  div
+                                    span.badge.badge-primary(style='margin-right:5px;') #{post.regionTag}
+                                    span.badge.badge-primary(style='margin-right:5px;') #{post.countryTag}
+                                    span.badge.badge-primary(style='margin-right:5px;') #{post.commodityTag}
+                                    
+                                .card-footer
+                                       .row
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsLikes')
+                                              input.btn.btn-outline-info(type='submit', value='Like')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsFavourite')
+                                              input.btn.btn-outline-success(type='submit', value='Favourite')
+                                          .col-md-3
+                                            form(method='POST', action='')
+                                              input.btn.btn-outline-primary(type='submit', value='Comment')
+                                          .col-md-3
+                                            form(method='POST', action='/' + post._id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')

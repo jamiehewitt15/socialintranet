@@ -15,11 +15,10 @@ block content
                     .h5 Search
                   label(for="filter") 
                   input#filter(type="text", name="filter", ng-model="textFilter")
-                  input(type='button', ng-click='AddData(); saved=true;', value='Hide Users')
 
 
               .col-md-6.gedf-main
-                .card.gedf-card(ng-hide="saved")
+                .card.gedf-card
                 
                   .card-body
                     .h5 All Users

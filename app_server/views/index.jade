@@ -12,25 +12,36 @@ block content
             .col-md-3
               .card
                 .card-body
-                  .h5 Filter
+                  .h5 Search
+                  label(for="filter") 
+                  input#filter(type="text", name="filter", ng-model="textFilter")
                 ul.list-group.list-group-flush
                   li.list-group-item
-                    .h6.text-muted Region
-                    each region in regions
-                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= region
+                    .h6.text-muted Region:
+                     label(for='inputRegion')
+                      select#regionSelect.form-control(name='regionTag', ng-model="tagFilter")
+                        each region in regions
+                          option #{region}
 
                   li.list-group-item
-                    .h6.text-muted Country
-                    each country in countries
-                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= country
-
+                    .h6.text-muted Country: 
+                     label(for='inputCountry')
+                      select#regionSelect.form-control(name='countryTag', ng-model="tagFilter")
+                        each country in countries
+                          option #{country}
+                    
                   li.list-group-item
-                    .h6.text-muted Commodity
-                    each commodity in commodities
-                      a.badge.badge-primary(style="margin-right: 5px;", data-toggle='tab', href='#following')= commodity
+                    .h6.text-muted Commodity/t
+                     label(for='inputCommodity')
+                      select#regionSelect.form-control(name='commodityTag', ng-model="tagFilter")
+                        each commodity in commodities
+                          option #{commodity}
+                    
 
             .col-md-6.gedf-main
-              .card.gedf-card
+              input.btn.btn-primary(type='button', ng-click='AddData(); saved=!saved;', value='Create Post', style="margin-bottom: 15px;")
+
+              .card.gedf-card(ng-hide="!saved")
                 .card-header
                   ul#myTab.nav.nav-tabs.card-header-tabs(role='tablist')
                     li.nav-item
@@ -44,9 +55,16 @@ block content
                   #myTabContent.tab-content
                     #posts.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='posts-tab')
                       form(method='POST', action='')
-                        .form-group                         
-                          label.sr-only(for='inputName') Name
-                          textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Your Full Name', name='user')
+                        .form-group(ng-controller="usersList")    
+                          .row
+                              .col-md-4
+                                label(for='inputName') 
+                                  .h7.text-muted Username
+                                select#regionSelect.form-control(name='user', style="margin-bottom:10px;")
+                                  option(ng-repeat="user in data") 
+                                    | {{ user.name }}                 
+                          //- label.sr-only(for='inputName') Name
+                          //- textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Your Full Name', name='user')
                           label.sr-only(for='inputTitle') Title
                           textarea#message.form-control(style="margin-bottom:10px;", rows='1', placeholder='Title / Headline', name='title')
                           label.sr-only(for='inputTitle') Subtitle
@@ -89,7 +107,7 @@ block content
                   
                     
               // Post /////          
-              div
+              div(ng-controller="newsList")
                 ul.nav.nav-tabs
                   li.nav-item
                     a.nav-link.active(data-toggle='tab', href='#all') All
@@ -100,9 +118,9 @@ block content
                 
                 #myTabContent.tab-content
                   #all.tab-pane.fade.active.show
-                          // - \\\\\\\All Posts
-                          each post in news
-                            if (post.report == false)
+                              // - \\\\\\\All Posts 
+                          div(ng-repeat="news in data | filter : textFilter | filter : tagFilter")
+                              //if ({{news.report}} != false)
                               .card.gedf-card(style='margin-top:20px')
                                     .card-header
                                       .d-flex.justify-content-between.align-items-center
@@ -110,124 +128,43 @@ block content
                                             .mr-2
                                                 img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
                                             .ml-2
-                                                .h5.m-0= post.title
-                                                .h7.text-muted= post.user
+                                                .h5.m-0 {{news.title}} 
+                                                .h7.text-muted {{news.user}}
                                           div
-                                          | #{post.likes} Likes
+                                          | {{news.likes}} Likes
                                             
                                     .card-body
                                       .text-muted.h7.mb-2
                                           i.fa.fa-clock-o
-                                          | #{post.time}
+                                          |{{news.createdAt | date : 'dd/MM/yyyy'}}
                                       a.card-link(href='#')
-                                          h5.card-title= post.subTitle
+                                          h5.card-title {{news.subTitle}}
                                       p.card-text
-                                        | #{post.text}
+                                        | {{news.text}}
+                                        
                                       div
-                                        span.badge.badge-primary(style='margin-right:5px;') #{post.regionTag}
-                                        span.badge.badge-primary(style='margin-right:5px;') #{post.countryTag}
-                                        span.badge.badge-primary(style='margin-right:5px;') #{post.commodityTag}
-                                            
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.regionTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.countryTag}}
+                                        span.badge.badge-primary(style='margin-right:5px;') {{news.commodityTag}}
                                     .card-footer
-                                       .row
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsLikes')
-                                              input.btn.btn-outline-info(type='submit', value='Like')
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsFavourite')
-                                              input.btn.btn-outline-success(type='submit', value='Favourite')
-                                          .col-md-3
-                                            a.btn.btn-outline-primary(href='/newsComment/' + post._id) Comment
-                                            //- form(method='GET', action='/' + post._id + '/newsComment')
-                                            //-   input.btn.btn-outline-primary(type='submit', value='Comment')
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsReport')
-                                              input.btn.btn-outline-danger(type='submit', value='report')
-                                          
-                              
-                  #popular.tab-pane.fade
-                    each post in news
-                            if (post.report == false && post.likes > 20)
-                              .card.gedf-card(style='margin-top:20px')
-                                .card-header
-                                  .d-flex.justify-content-between.align-items-center
-                                    .d-flex.justify-content-between.align-items-center
-                                      .mr-2
-                                        img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
-                                      .ml-2
-                                        .h5.m-0= post.title
-                                        .h7.text-muted= post.user
-                                    div
-                                      | #{post.likes} Likes
-                                        
-                                .card-body
-                                  .text-muted.h7.mb-2
-                                    i.fa.fa-clock-o
-                                    | #{post.time}
-                                  a.card-link(href='#')
-                                    h5.card-title= post.subTitle
-                                  p.card-text
-                                    | #{post.text}
-                                  div
-                                        each tag in post.tags
-                                          span.badge.badge-primary(style='margin-right:5px;')= tag
-                                .card-footer
-                                       .row
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsLikes')
-                                              input.btn.btn-outline-info(type='submit', value='Like')
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsFavourite')
-                                              input.btn.btn-outline-success(type='submit', value='Favourite')
-                                          .col-md-3
-                                            form(method='POST', action='')
-                                              input.btn.btn-outline-primary(type='submit', value='Comment')
-                                          .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsReport')
-                                              input.btn.btn-outline-danger(type='submit', value='report')
-                  
-                  #favourites.tab-pane.fade
-                    each post in news
-                      if (post.report == false && post.favourite == true )
-                              .card.gedf-card(style='margin-top:20px')
-                                .card-header
-                                  .d-flex.justify-content-between.align-items-center
-                                    .d-flex.justify-content-between.align-items-center
-                                      .mr-2
-                                        img.rounded-circle(width='45', src="/images/user-profile.png", alt='Profile pic')
-                                      .ml-2
-                                        .h5.m-0= post.title
-                                        .h7.text-muted= post.user
-                                    div
-                                      | #{post.likes} Likes
-                                        
-                                .card-body
-                                  .text-muted.h7.mb-2
-                                    i.fa.fa-clock-o
-                                    | #{post.createdAt}
-                                  a.card-link(href='#')
-                                    h5.card-title= post.subTitle
-                                  p.card-text
-                                    | #{post.text}
-                                  div
-                                    span.badge.badge-primary(style='margin-right:5px;') #{post.regionTag}
-                                    span.badge.badge-primary(style='margin-right:5px;') #{post.countryTag}
-                                    span.badge.badge-primary(style='margin-right:5px;') #{post.commodityTag}
                                     
-                                .card-footer
                                        .row
                                           .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsLikes')
+                                            form(method='POST', action='/' + '{{news._id}}' + '/newsLikes')
                                               input.btn.btn-outline-info(type='submit', value='Like')
                                           .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsFavourite')
+                                            form(method='POST', action='/' + '{{news._id}}' + '/newsFavourite')
                                               input.btn.btn-outline-success(type='submit', value='Favourite')
                                           .col-md-3
-                                            form(method='POST', action='')
-                                              input.btn.btn-outline-primary(type='submit', value='Comment')
+                                              form(method='GET', action='/' + id + '/newsComment')
+                                                input.btn.btn-outline-primary(type='submit', value='Comment')
                                           .col-md-3
-                                            form(method='POST', action='/' + post._id + '/newsReport')
-                                              input.btn.btn-outline-danger(type='submit', value='report')
+                                            form(method='POST', action='/' + id + '/newsReport')
+                                              input.btn.btn-outline-danger(type='submit', value='report')      
+                                    
+
+
+
                             
                   div
                     ul.pagination

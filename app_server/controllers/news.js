@@ -2,21 +2,21 @@ var request = require('request');
 var apiOptions = { server : "http://localhost:3000" };
 
 module.exports.newsList = function(req, res) {
-    var requestOptions;
-    var path;
-    path = '/api/';
-    requestOptions = {
-        url: apiOptions.server + path,
-        method: "GET",
-        json:  {}
-    };
-    request(requestOptions,
-            function(apierr, apires, apibody){
-                if(apires.statusCode == 200 && apibody.length){
-                    renderHomepage(req, res, apibody);
-            }
-        }
-    );
+    // var requestOptions;
+    // var path;
+    // path = '/api/';
+    // requestOptions = {
+    //     url: apiOptions.server + path,
+    //     method: "GET",
+    //     json:  {}
+    // };
+    // request(requestOptions,
+    //         function(apierr, apires, apibody){
+    //             if(apires.statusCode == 200 && apibody.length){
+                    renderHomepage(req, res);
+    //         }
+    //     }
+    // );
 };
 
 module.exports.newsComment = function(req, res) {
@@ -147,7 +147,7 @@ module.exports.doNewsComment = function(req, res){
 }
 
 
-var renderHomepage = function(req, res, body){
+var renderHomepage = function(req, res){
     res.render('index', {   title: 'Solidaridad Intranet',
                             pageHeader: {
                                 title: "Latest Updates",
@@ -160,7 +160,7 @@ var renderHomepage = function(req, res, body){
                             regions: ["East Africa", "Central Africa", "Southern Africa", "West Africa", "Asia", "Europe", "South America", "North America"],
                             countries: ["Kenya", "Uganda", "Tanzania", "Ethiopia", "Rwanda", "DRC", "Zimbabwe", "India", "China", "Nigeria", "Brazil", "Bolivia"],
                             commodities: ["Coffee", "Tea", "Leather", "Gold", "Dairy", "Poultry", "Textiles", "Palm Oil", "Soy"],
-                            news: body,
+                           
                             
 });
 }
