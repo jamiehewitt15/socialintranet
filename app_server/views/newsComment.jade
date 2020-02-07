@@ -46,17 +46,22 @@ block content
               h4.card-title= comment.name
             .card-body
               p.card-text
-                .text-muted.h7.mb-2
-                | 30/10/2019 20:30
+                .text-muted.p.mb-2
+                | 21/01/2020
               p.card-text= comment.comment
 
       form(method='POST', action='')
         fieldset
           legend New Comment
-          .form-group
-            label(for='inputName') Name
-            input#inputName.form-control(aria-describedby='nameHelp', type='text', placeholder='Enter name', name='name')
-            small#nameHelp.form-text.text-muted This will appear above your comment.
+          .form-group(ng-controller="usersList")    
+            .row
+              .col-md-4
+                label(for='inputName') Username
+                select#regionSelect.form-control(name='name', style="margin-bottom:10px;", placeholder='Enter name')
+                  option(ng-repeat="user in data") 
+                    | {{ user.name }}  
+                small#nameHelp.form-text.text-muted This will appear above your comment.
+          
           .form-group
             label(for='inputComment') Comment
             textarea#comment.form-control(rows='3', placeholder='Comment on the post', name='comment')

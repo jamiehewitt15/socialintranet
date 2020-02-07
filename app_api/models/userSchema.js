@@ -5,8 +5,9 @@ var userSchema = new mongoose.Schema({
     description: {type: String, "default": "New user"},
     followers: {type: Number, "default": 0, min: 0},
     following: {type: Number, "default": 0, min: 0},
-    profilePic: {type: Buffer, "default": "localhost:3000/images/user-profile.png"},
-    // news:[newsSchema]
-});
+    profilePic: {type: Buffer, "default": "localhost:3000/images/user-profile.png"}, 
+},
+{timestamps: true}
+);
 
 mongoose.model('users', userSchema);
