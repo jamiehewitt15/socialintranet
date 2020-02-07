@@ -1,4 +1,4 @@
-# socialintranet
+# Social Intranet
 
 Community web app (MEAN stack)
 
