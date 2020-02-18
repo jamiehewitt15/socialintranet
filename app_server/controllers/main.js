@@ -1,5 +1,5 @@
 var request = require('request');
-var apiOptions = { server : "http://localhost:3000" };
+var apiOptions = { server : "http://stormy-ravine-01845.herokuapp.com" };
 
 module.exports.showUsers = function(req, res) {
     res.render('users', { title: 'Create a New User' });
