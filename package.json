@@ -5,6 +5,11 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+    "engines" : {
+        "node" : "12.16.0",
+        "npm" : "6.13.0"
+      },
+    
   "dependencies": {
     "angular": "^1.7.9",
     "cookie-parser": "~1.4.4",
