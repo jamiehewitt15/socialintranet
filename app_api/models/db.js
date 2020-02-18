@@ -1,5 +1,5 @@
 var mongoose = require( "mongoose");
-var dbURI = 'mongodb://localhost/Intranet';
+var dbURI = 'mongodb+srv://jamie:st26can18@cluster0-mb7hs.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function(){
