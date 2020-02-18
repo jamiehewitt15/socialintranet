@@ -37,6 +37,7 @@ module.exports.usersReadOne = function (req, res) {
 };
 
 module.exports.usersCreate = function (req, res) {
+    console.log("usersCreate Start")
     Users.create({
         name: req.body.name,
         description: req.body.description
