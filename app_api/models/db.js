@@ -1,9 +1,7 @@
 var mongoose = require( "mongoose");
-mongoose.connect("mongodb+srv://jamie:st26can18@cluster0-mb7hs.mongodb.net/Intranet", { useNewUrlParser: true });
-//MongoClient.connect("mongodb://localhost:27017/YourDB", { useNewUrlParser: true })
-
-//var dbURI = 'mongodb+srv://jamie:st26can18@cluster0-mb7hs.mongodb.net/test?retryWrites=true&w=majority';
-//mongoose.connect(dbURI);
+var env = require('../../.env');
+var connectionString = process.env.MONGOLAB_URI;
+mongoose.connect(connectionString, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', function(){
     console.log('Hello and welcome! Mongoose is connected to ' + "the database")
