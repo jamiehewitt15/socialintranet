@@ -1,5 +1,5 @@
 var request = require('request');
-var apiOptions = { server : "http://stormy-ravine-01845.herokuapp.com" };
+var apiOptions = { server : "http://social-intranet.herokuapp.com/" };
 
 module.exports.newsList = function(req, res) {
      renderHomepage(req, res);
